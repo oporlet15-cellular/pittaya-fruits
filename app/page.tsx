@@ -106,10 +106,10 @@ export default function HomePage() {
                 <span className="text-[10px] uppercase tracking-widest text-secondary-fixed font-semibold block">
                   Lot #042 Grand Reserve
                 </span>
-                <p className="font-serif text-sm font-semibold">กระเช้าผลไม้พรีเมียม Atelier Grand Reserve</p>
+                <p className="font-serif text-sm font-semibold">กระเช้าผลไม้สด Pittaya Grand Basket</p>
                 <div className="flex items-center justify-between text-xs mt-1">
                   <span>ขนาด 12", 14", 16"</span>
-                  <span className="font-bold text-secondary-fixed">฿1,890 – ฿4,090 THB</span>
+                  <span className="font-bold text-secondary-fixed">฿1,000 – ฿3,500 THB</span>
                 </div>
               </div>
             </div>
