@@ -9,7 +9,7 @@ import RipenessTimeline from '@/components/RipenessTimeline';
 import HowToOrderBar from '@/components/HowToOrderBar';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2, QrCode } from 'lucide-react';
 import { LINE_OA_CONFIG } from '@/lib/productsData';
 
 export default function HomePage() {
@@ -50,13 +50,21 @@ export default function HomePage() {
               {t('heroDesc')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={handleHeroLineChat}
                 className="bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-6 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-md active:scale-[0.99]"
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
-                <span>{t('heroCtaOrder')}</span>
+                <span>{t('addLineBtn')}</span>
+              </button>
+
+              <button
+                onClick={handleHeroLineChat}
+                className="bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-primary font-semibold py-3.5 px-5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <QrCode className="w-4 h-4 text-secondary" />
+                <span>{t('scanQrBtn')}</span>
               </button>
 
               <Link
