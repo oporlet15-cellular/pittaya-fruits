@@ -94,11 +94,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex flex-col group">
-          <span className="font-serif text-xl sm:text-2xl tracking-[0.16em] text-primary uppercase group-hover:text-secondary transition-colors font-medium">
-            BOTANICA
+          <span className="font-serif text-xl sm:text-2xl tracking-[0.14em] text-primary uppercase group-hover:text-secondary transition-colors font-medium">
+            PITTAYA FRUITS
           </span>
-          <span className="text-[10px] tracking-[0.2em] text-on-surface-variant font-medium">
-            {LINE_OA_CONFIG.storeName}
+          <span className="text-[10px] tracking-[0.1em] text-on-surface-variant font-medium">
+            ร้านผลไม้เจ๊อึ่ง (ประสบการณ์ 20+ ปี)
           </span>
         </Link>
 

@@ -8,8 +8,8 @@ import CartDrawer from '@/components/CartDrawer';
 import LineChatModal from '@/components/LineChatModal';
 
 export const metadata: Metadata = {
-  title: 'Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง) — กระเช้าผลไม้พรีเมียม & ผลไม้จัดเบรค',
-  description: 'กระเช้าผลไม้พรีเมียมคัดพิเศษ สไตล์ญี่ปุ่น Mizumono สด หวานฉ่ำ Brix 18° พร้อมบริการเขียนการ์ดอวยพรและริบบิ้นผ้าไหมฟรี สั่งซื้อทาง LINE OA',
+  title: 'Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง) — กระเช้าผลไม้ของขวัญ & เซ็ตผลไม้จัดเบรค',
+  description: 'ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) ประสบการณ์กว่า 20 ปี กระเช้าผลไม้สดคัดพิเศษ กล่องของขวัญ และเซ็ตผลไม้จัดเบรคอีเวนต์ บริการผูกริบบิ้นและเขียนการ์ดฟรี สั่งซื้อง่ายทาง LINE OA',
 };
 
 export default function RootLayout({

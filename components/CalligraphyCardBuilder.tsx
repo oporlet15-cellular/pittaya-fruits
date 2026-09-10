@@ -89,8 +89,8 @@ export default function CalligraphyCardBuilder({
           <div className="absolute top-2 left-2 text-[10px] font-serif text-secondary/60 tracking-widest uppercase">
             {LINE_OA_CONFIG.storeName}
           </div>
-          <div className="absolute top-2 right-2 text-[10px] text-primary/40 font-mono">
-            LOT #MIZUMONO
+          <div className="absolute top-2 right-2 text-[10px] text-primary/40 font-mono font-medium">
+            PITTAYA FRUITS (20+ YRS)
           </div>
 
           <div className="pt-3 pb-1 px-4">

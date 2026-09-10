@@ -118,9 +118,9 @@ export const LINE_OA_CONFIG = {
   lineId: 'LINE OA',
   lineUrl: 'https://lin.ee/5zUrw47',
   qrCodeImage: '/line-qr.png',
-  phone: '081-234-5678',
-  storeHours: '08:00 - 20:00 (เปิดบริการทุกวัน)',
-  address: 'Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง), คลองจั่น บางกะปิ กรุงเทพฯ 10240',
+  phone: '082-659-8893',
+  storeHours: '09:30 - 14:30 (หน้าร้าน จ.-ศ.) / รับออเดอร์ทาง LINE ทุกวัน',
+  address: 'ซอยนวมินทร์ 8 แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ 10240',
   googleMapsUrl: 'https://maps.app.goo.gl/17sYdGdrdtuvJYPG9',
   coordinates: {
     lat: 13.7748255,

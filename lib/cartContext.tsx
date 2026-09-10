@@ -190,21 +190,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const unitPrice = calculateUnitPrice(product, size, tier, quantity);
     const totalPrice = unitPrice * quantity;
 
-    let message = `🌿 *BOTANICA Mizumono Atelier Order Inquiry*\n`;
+    let message = `🌿 *ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) — สนใจสั่งซื้อ*\n`;
     message += `--------------------------------------\n`;
-    message += `📦 *Product:* ${product.name}\n`;
-    if (size) message += `📐 *Size:* ${size}\n`;
-    if (tier) message += `⭐ *Tier:* ${tier}\n`;
-    message += `🎀 *Presentation:* Signature Atelier Silk Ribbon (Included)\n`;
-    message += `🔢 *Quantity:* ${quantity}\n`;
-    message += `💰 *Est. Total:* $${totalPrice} USD\n`;
+    message += `📦 *สินค้า:* ${product.name}\n`;
+    if (size) message += `📐 *ขนาด:* ${size}\n`;
+    if (tier) message += `⭐ *เกรด:* ${tier}\n`;
+    message += `🎀 *บริการ:* ผูกริบบิ้นฟรี & เขียนการ์ดอวยพรฟรี\n`;
+    message += `🔢 *จำนวน:* ${quantity} ชิ้น\n`;
+    message += `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`;
 
     if (customNote.trim()) {
-      message += `✍️ *Calligraphy Card Note:* "${customNote.trim()}"\n`;
+      message += `✍️ *ข้อความในการ์ด:* "${customNote.trim()}"\n`;
     }
 
+    message += `🚗 *การจัดส่ง:* จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)\n`;
     message += `--------------------------------------\n`;
-    message += `I would like to confirm availability and schedule courier delivery.`;
+    message += `ต้องการสอบถามคิวจัดส่งและสรุปยอดกับทางร้านครับ/ค่ะ`;
 
     setActiveLineMessage(message);
     setIsLineModalOpen(true);
@@ -213,21 +214,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const openLineOrderForCart = () => {
     if (cart.length === 0) return;
 
-    let message = `🌿 *BOTANICA Mizumono Atelier — Combined Order*\n`;
+    let message = `🌿 *ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) — รายการสั่งซื้อ*\n`;
     message += `--------------------------------------\n`;
 
     cart.forEach((item, index) => {
       message += `[${index + 1}] *${item.product.name}*\n`;
-      if (item.selectedSize) message += `   • Size: ${item.selectedSize}\n`;
-      if (item.selectedTier) message += `   • Tier: ${item.selectedTier}\n`;
-      message += `   • Presentation: Signature Silk Ribbon (Included)\n`;
-      if (item.customCardNote) message += `   • Card Note: "${item.customCardNote}"\n`;
-      message += `   • Qty: ${item.quantity} × $${item.unitPrice} = $${item.totalPrice}\n\n`;
+      if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
+      if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
+      message += `   • บริการ: ผูกริบบิ้นฟรี & การ์ดอวยพรฟรี\n`;
+      if (item.customCardNote) message += `   • ข้อความการ์ด: "${item.customCardNote}"\n`;
+      message += `   • จำนวน: ${item.quantity} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
     });
 
     message += `--------------------------------------\n`;
-    message += `💰 *Total Estimated Price:* $${cartTotal} USD\n`;
-    message += `I would like to finalize payment and delivery time on LINE OA.`;
+    message += `💰 *ยอดรวมสินค้าโดยประมาณ:* ฿${cartTotal.toLocaleString()} บาท\n`;
+    message += `🚗 *การจัดส่ง:* จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)\n`;
+    message += `ต้องการยืนยันรายการ ชำระเงิน และนัดหมายเวลาจัดส่งครับ/ค่ะ`;
 
     setActiveLineMessage(message);
     setIsLineModalOpen(true);

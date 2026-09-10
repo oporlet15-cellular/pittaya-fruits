@@ -27,33 +27,33 @@ export default function RipenessTimeline() {
       status: 'active',
     },
     {
-      title: 'รถส่งควบคุมความเย็น',
-      desc: 'จัดส่งด่วนในวันด้วยรถตู้แช่เย็น ส่งตรงถึงมือผู้รับทั่วกรุงเทพฯ',
+      title: 'จัดส่งรถยนต์ผ่านแพลตฟอร์ม',
+      desc: 'จัดส่งด้วยรถยนต์ผ่านแพลตฟอร์ม คิดค่าส่งตามระยะทางจริง ปกป้องกระเช้าผลไม้ถึงมือผู้รับอย่างสมบูรณ์แบบ',
       icon: Truck,
       status: 'upcoming',
     },
   ] : [
     {
       title: 'Dawn Harvest',
-      desc: 'Hand-harvested at sunrise from exclusive partnered orchards.',
+      desc: 'Hand-harvested at sunrise from trusted partnered orchards.',
       icon: Sun,
       status: 'complete',
     },
     {
-      title: 'Cold-Vault Cure',
-      desc: 'Rested in 12°C humidity-controlled botanical vaults.',
+      title: 'Cool Storage Rest',
+      desc: 'Rested in temperature-controlled rooms to retain crisp freshness.',
       icon: Thermometer,
       status: 'complete',
     },
     {
-      title: 'Peak Brix Rating',
-      desc: 'Refractometer sweetness index tested (15° – 18° Brix).',
+      title: 'Peak Sweetness Check',
+      desc: 'Carefully checked for ripeness, aroma, and natural fruit sweetness.',
       icon: Sparkles,
       status: 'active',
     },
     {
-      title: 'Same-Day Courier',
-      desc: 'Dispatched in thermal insulated presentation vessels.',
+      title: 'Platform Car Delivery',
+      desc: 'Dispatched via platform cars (fee by distance) to safeguard fruit basket presentation.',
       icon: Truck,
       status: 'upcoming',
     },
@@ -64,10 +64,10 @@ export default function RipenessTimeline() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-outline-variant/30 pb-4">
         <div>
           <h3 className="font-serif text-lg text-primary font-semibold">
-            {language === 'th' ? 'มาตรฐานการคัดสรร & วัดระดับความหวาน' : 'Botanical Harvest & Ripeness Protocol'}
+            {language === 'th' ? 'มาตรฐานความสด & การดูแลผลไม้ (ประสบการณ์ 20+ ปี)' : 'Fruit Quality & Care Standard (20+ Years Expertise)'}
           </h3>
           <p className="text-xs text-on-surface-variant">
-            {language === 'th' ? 'ส่งมอบความสดฉ่ำและคุณภาพระดับพรีเมียมจากสวนสู่มือผู้รับ' : 'Gallery-grade freshness assurance from tree to recipient'}
+            {language === 'th' ? 'ส่งมอบความสดฉ่ำและคุณภาพด้วยความใส่ใจจากสวนสู่มือผู้รับ' : 'Carefully handled and arranged from orchard to your recipient'}
           </p>
         </div>
         <span className="bg-primary/10 text-primary font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider self-start sm:self-auto">

@@ -71,11 +71,11 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex flex-col">
-              <span className="font-serif text-2xl tracking-[0.16em] text-primary uppercase font-semibold">
-                BOTANICA
+              <span className="font-serif text-2xl tracking-[0.14em] text-primary uppercase font-semibold">
+                PITTAYA FRUITS
               </span>
-              <span className="text-xs tracking-[0.2em] text-secondary font-medium">
-                {LINE_OA_CONFIG.storeName}
+              <span className="text-xs tracking-[0.1em] text-secondary font-medium">
+                ร้านผลไม้เจ๊อึ่ง (ประสบการณ์ 20+ ปี)
               </span>
             </div>
             <p className="text-xs leading-relaxed text-on-surface-variant">
@@ -175,8 +175,8 @@ export default function Footer() {
             <h6 className="font-serif text-sm text-primary font-medium">{LINE_OA_CONFIG.storeName}</h6>
             <p className="text-xs text-on-surface-variant">
               {language === 'th'
-                ? 'ตั้งอยู่ที่คลองจั่น บางกะปิ กรุงเทพฯ พร้อมบริการจัดส่งรถควบคุมความเย็นทั่วกรุงเทพฯ'
-                : 'Located in Klong Chan, Bang Kapi, Bangkok. Serving same-day refrigerated courier delivery across Bangkok.'}
+                ? 'ตั้งอยู่ที่ซอยนวมินทร์ 8 แขวงคลองจั่น เขตบางกะปิ กรุงเทพฯ พร้อมบริการจัดส่งรถยนต์ผ่านแพลตฟอร์ม คิดค่าส่งตามระยะทางจริง'
+                : 'Located at Soi Nawamin 8, Klong Chan, Bang Kapi, Bangkok. Platform car delivery available (fee based on distance).'}
             </p>
             <a
               href={LINE_OA_CONFIG.googleMapsUrl}
