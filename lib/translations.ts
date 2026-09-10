@@ -5,7 +5,7 @@ export const TRANSLATIONS = {
     // Header & Nav
     dispatchUrgency: 'บริการจัดส่งทุกวัน:',
     dispatchWindow: 'เปิดรับออเดอร์',
-    dispatchTarget: '08:00 - 20:00 น. จัดส่งด้วยรถยนต์ถึงที่',
+    dispatchTarget: 'จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)',
     closeDealLine: 'สั่งซื้อผ่าน LINE OA',
     chatLine: 'ปรึกษาผ่าน LINE OA',
     navHome: 'หน้าแรก',
@@ -152,7 +152,7 @@ export const TRANSLATIONS = {
     // Header & Nav
     dispatchUrgency: 'Daily Delivery Service:',
     dispatchWindow: 'Orders Open',
-    dispatchTarget: '08:00 - 20:00 Daily • Car Delivery Available',
+    dispatchTarget: 'Platform Car Delivery (Fee by Distance)',
     closeDealLine: 'Order via LINE OA',
     chatLine: 'Consult on LINE OA',
     navHome: 'Home',
