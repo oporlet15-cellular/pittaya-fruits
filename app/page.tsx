@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { PRODUCTS } from '@/lib/productsData';
 import ProductCard from '@/components/ProductCard';
 import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
-import RipenessTimeline from '@/components/RipenessTimeline';
 import HowToOrderBar from '@/components/HowToOrderBar';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
@@ -180,11 +179,6 @@ export default function HomePage() {
         </div>
 
         <CalligraphyCardBuilder />
-      </section>
-
-      {/* Harvest Ripeness Timeline Protocol */}
-      <section>
-        <RipenessTimeline />
       </section>
 
       {/* Verified Patron Reviews Section */}

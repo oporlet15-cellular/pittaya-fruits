@@ -25,28 +25,6 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: 'heritage-orchard-basket',
-    name: 'กระเช้าผลไม้ Signature Harvest Basket',
-    category: 'basket',
-    subtitle: 'รวมผลไม้ยอดนิยม เมล่อนหวานฉ่ำ ลูกพีช และเชอร์รี่สีทับทิม',
-    description: 'กระเช้าผลไม้แห่งความอุดมสมบูรณ์ คัดสรรเมล่อนหวานฉ่ำ ลูกพีชขาว และเชอร์รี่ บรรจุในกระเช้าไม้งามสง่า เหมาะสำหรับมอบเป็นของขวัญผู้ใหญ่ งานขึ้นบ้านใหม่ และวันสำคัญ',
-    brixIndex: 'Peak 16.5° Brix',
-    lotNumber: 'Lot #045',
-    basePrice: 1000,
-    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=800',
-    highlights: ['คัดสดทุกล็อต', 'ราคาสมเหตุสมผล', 'ผูกริบบิ้น & การ์ดอวยพรฟรี'],
-    isLimitedRelease: false,
-    availableSizes: [
-      { size: '12"', label: 'ขนาด 12" (Standard ฿1,000 / Premium ฿1,500)', fruitCount: 'เหมาะสำหรับ 2-3 ท่าน', priceModifier: 0 },
-      { size: '14"', label: 'ขนาด 14" (Standard ฿2,000 / Premium ฿2,500)', fruitCount: 'เหมาะสำหรับ 4-6 ท่าน', priceModifier: 1000 },
-      { size: '16"', label: 'ขนาด 16" (Standard ฿3,000 / Premium ฿3,500)', fruitCount: 'เหมาะสำหรับ 8 ท่านขึ้นไป', priceModifier: 2000 },
-    ],
-    availableTiers: [
-      { tier: 'Standard', label: 'Standard Tier (฿1,000 - ฿3,000)', description: 'ผลไม้สดตามฤดูกาลคัดสรรพิเศษ สดใหม่ทุกวัน', priceModifier: 0 },
-      { tier: 'Premium', label: 'Premium Tier (+฿500)', description: 'อัปเกรดผลไม้นำเข้าพิเศษเกรดคัดพิเศษ', priceModifier: 500 },
-    ],
-  },
-  {
     id: 'signature-gift-box',
     name: 'กล่องของขวัญผลไม้สด Signature Gift Box',
     category: 'gift-box',

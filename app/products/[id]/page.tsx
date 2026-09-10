@@ -8,7 +8,6 @@ import { BasketSize, BasketTier } from '@/lib/types';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
 import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
-import RipenessTimeline from '@/components/RipenessTimeline';
 import { MessageSquare, ArrowLeft, Check, Sparkles, ShieldCheck, Truck, ShoppingBag, AlertCircle, Gift } from 'lucide-react';
 
 export default function ProductDetailPage() {
@@ -296,9 +295,6 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </div>
-
-      {/* Protocol Section */}
-      <RipenessTimeline />
     </div>
   );
 }
