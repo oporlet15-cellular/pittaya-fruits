@@ -1,6 +1,6 @@
 export type BasketSize = '12"' | '14"' | '16"';
 export type BasketTier = 'Standard' | 'Premium';
-export type RibbonColor = 'Signature Atelier Silk Ribbon';
+export type RibbonColor = string;
 
 export interface Product {
   id: string;

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { PRODUCTS } from '@/lib/productsData';
 import ProductCard from '@/components/ProductCard';
-import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
 import HowToOrderBar from '@/components/HowToOrderBar';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
@@ -153,25 +152,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Calligraphy Studio Section */}
-      <section className="space-y-6">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-secondary font-semibold text-xs uppercase tracking-widest">
-            {language === 'th' ? 'บริการเสริมพิเศษฟรี' : 'Personalization Service'}
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary font-semibold">
-            {language === 'th' ? 'บริการเขียนการ์ดอวยพรด้วยลายมือ & ริบบิ้นผ้าไหม' : 'Inscribe a Calligraphy Card for Your Recipient'}
-          </h2>
-          <p className="text-xs sm:text-sm text-on-surface-variant">
-            {language === 'th'
-              ? 'พิมพ์ข้อความอวยพรของคุณด้านล่าง เพื่อดูตัวอย่างการ์ดลายมือจริงบนกระดาษพาร์ชเมนต์สไตล์ญี่ปุ่น'
-              : 'Type your greeting below to preview your handwritten card on Japanese parchment ink paper.'}
-          </p>
-        </div>
-
-        <CalligraphyCardBuilder />
-      </section>
-
       {/* Verified Patron Reviews Section */}
       <section className="bg-surface-container-low rounded-2xl p-6 sm:p-10 border border-outline-variant/40 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-outline-variant/30 pb-4">
@@ -179,21 +159,10 @@ export default function HomePage() {
             <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
               {t('patronBadge')}
             </span>
-            <h2 className="font-serif text-2xl text-primary font-semibold mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary font-semibold">
               {t('patronTitle')}
             </h2>
           </div>
-          <div className="flex items-center gap-1 text-secondary text-sm font-semibold">
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <span className="text-primary text-xs ml-1 font-bold">5.0 / 5.0 Rating</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40 space-y-4">
             <div className="flex text-secondary gap-1">
               {[...Array(5)].map((_, i) => (
@@ -205,7 +174,9 @@ export default function HomePage() {
             </p>
             <div className="flex items-center justify-between text-xs text-on-surface-variant pt-2 border-t border-outline-variant/30">
               <span className="font-semibold text-primary">{t('review1Author')}</span>
-              <span className="font-mono text-[10px]">Order #BOT-9182</span>
+              <span className="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded font-medium">
+                {language === 'th' ? 'กระเช้าของขวัญ' : 'Gift Basket'}
+              </span>
             </div>
           </div>
 
@@ -220,7 +191,9 @@ export default function HomePage() {
             </p>
             <div className="flex items-center justify-between text-xs text-on-surface-variant pt-2 border-t border-outline-variant/30">
               <span className="font-semibold text-primary">{t('review2Author')}</span>
-              <span className="font-mono text-[10px]">Event Client #841</span>
+              <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">
+                {language === 'th' ? 'งานสัมมนาองค์กร' : 'Corporate Event'}
+              </span>
             </div>
           </div>
         </div>
@@ -239,8 +212,8 @@ export default function HomePage() {
 
           <p className="text-xs sm:text-sm text-on-primary-container leading-relaxed">
             {language === 'th'
-              ? 'ทักแชทสั่งซื้อผ่าน LINE OA ได้ทันที เราพร้อมจัดเตรียมผลไม้สดใหม่ เขียนการ์ดอวยพร และจัดส่งด่วนถึงมือผู้รับอย่างประณีต'
-              : 'Chat directly with our Atelier Sommelier on LINE OA. We will confirm your preferred fruit varieties, basket sizes, silk ribbons, and dispatch time.'}
+              ? 'ทักแชทสั่งซื้อผ่าน LINE OA ได้ทันที เราพร้อมจัดเตรียมผลไม้สดใหม่ ผูกริบบิ้นสวยงาม และจัดส่งด่วนถึงมือผู้รับอย่างประณีต'
+              : 'Chat directly with our team on LINE OA. We will confirm your preferred fruit varieties, basket sizes, ribbons, and dispatch time.'}
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -96,7 +96,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   ) => {
     const size = options?.size || (product.availableSizes ? product.availableSizes[0].size : undefined);
     const tier = options?.tier || (product.availableTiers ? product.availableTiers[0].tier : undefined);
-    const ribbon: RibbonColor = 'Signature Atelier Silk Ribbon';
+    const ribbon: RibbonColor = 'ผูกริบบิ้นฟรี';
     const customNote = options?.customNote || '';
     const quantity = options?.quantity || 1;
 
@@ -195,14 +195,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     message += `📦 *สินค้า:* ${product.name}\n`;
     if (size) message += `📐 *ขนาด:* ${size}\n`;
     if (tier) message += `⭐ *เกรด:* ${tier}\n`;
-    message += `🎀 *บริการ:* ผูกริบบิ้นฟรี & เขียนการ์ดอวยพรฟรี\n`;
+    message += `🎀 *บริการ:* ผูกริบบิ้นฟรี\n`;
     message += `🔢 *จำนวน:* ${quantity} ชิ้น\n`;
     message += `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`;
-
-    if (customNote.trim()) {
-      message += `✍️ *ข้อความในการ์ด:* "${customNote.trim()}"\n`;
-    }
-
     message += `🚗 *การจัดส่ง:* จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)\n`;
     message += `--------------------------------------\n`;
     message += `ต้องการสอบถามคิวจัดส่งและสรุปยอดกับทางร้านครับ/ค่ะ`;
@@ -221,8 +216,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       message += `[${index + 1}] *${item.product.name}*\n`;
       if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
       if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
-      message += `   • บริการ: ผูกริบบิ้นฟรี & การ์ดอวยพรฟรี\n`;
-      if (item.customCardNote) message += `   • ข้อความการ์ด: "${item.customCardNote}"\n`;
+      message += `   • บริการ: ผูกริบบิ้นฟรี\n`;
       message += `   • จำนวน: ${item.quantity} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
     });
 

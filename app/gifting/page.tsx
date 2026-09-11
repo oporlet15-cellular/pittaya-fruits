@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
 import { PRODUCTS, LINE_OA_CONFIG } from '@/lib/productsData';
 import ProductCard from '@/components/ProductCard';
 import { Sparkles, Gift, MessageSquare, Heart, CheckCircle2 } from 'lucide-react';
@@ -35,8 +34,8 @@ export default function GiftingStudioPage() {
 
         <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-xl mx-auto">
           {language === 'th'
-            ? 'ด้วยประสบการณ์คัดสรรผลไม้กว่า 20 ปี และจัดกระเช้ามาแล้วกว่า 1,000+ กระเช้า ทุกกระเช้าและกล่องของขวัญมาพร้อมบริการผูกริบบิ้นฟรี และเขียนการ์ดอวยพรความหมายดีฟรี'
-            : 'With over 20+ years of fruit selection expertise and 1,000+ gift baskets crafted, every gift basket and box includes complimentary tailored ribbon finishing and handwritten calligraphy greeting cards.'}
+            ? 'ด้วยประสบการณ์คัดสรรผลไม้กว่า 20 ปี และจัดกระเช้ามาแล้วกว่า 1,000+ กระเช้า ทุกกระเช้าและกล่องของขวัญมาพร้อมบริการผูกริบบิ้นฟรี สวยงามประณีต'
+            : 'With over 20+ years of fruit selection expertise and 1,000+ gift baskets crafted, every gift basket and box includes complimentary tailored ribbon finishing.'}
         </p>
 
         <button
@@ -48,24 +47,16 @@ export default function GiftingStudioPage() {
         </button>
       </div>
 
-      {/* Calligraphy Card Builder */}
-      <section className="space-y-4">
-        <h2 className="font-serif text-2xl text-primary font-semibold">
-          {language === 'th' ? '1. ข้อความเขียนการ์ดอวยพร (บริการฟรี)' : '1. Create Your Handwritten Gift Card (Complimentary)'}
-        </h2>
-        <CalligraphyCardBuilder />
-      </section>
-
       {/* Recommended Gift Offerings */}
       <section className="space-y-6">
         <div className="border-b border-outline-variant/40 pb-4">
           <h2 className="font-serif text-2xl text-primary font-semibold">
-            {language === 'th' ? '2. เลือกกระเช้าหรือกล่องของขวัญ' : '2. Choose Recommended Gift Basket or Box'}
+            {language === 'th' ? 'เลือกกระเช้าหรือกล่องของขวัญ' : 'Choose Recommended Gift Basket or Box'}
           </h2>
           <p className="text-xs text-on-surface-variant">
             {language === 'th'
               ? 'เลือกขนาดกระเช้า (12", 14", 16") หรือเกรดผลไม้ (Standard / Premium) พร้อมส่งมอบความประทับใจ'
-              : 'Select size (12", 14", 16") or fruit tier (Standard / Premium) to pair with your card & ribbon.'}
+              : 'Select size (12", 14", 16") or fruit tier (Standard / Premium) with complimentary ribbon finishing.'}
           </p>
         </div>
 

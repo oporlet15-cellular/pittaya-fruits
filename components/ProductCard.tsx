@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'Signature Atelier Silk Ribbon',
+      ribbon: 'ผูกริบบิ้นฟรี',
     });
   };
 
@@ -47,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'Signature Atelier Silk Ribbon',
+      ribbon: 'ผูกริบบิ้นฟรี',
     });
   };
 

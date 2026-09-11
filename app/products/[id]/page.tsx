@@ -7,7 +7,6 @@ import { PRODUCTS } from '@/lib/productsData';
 import { BasketSize, BasketTier } from '@/lib/types';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
 import { MessageSquare, ArrowLeft, Check, Sparkles, ShieldCheck, Truck, ShoppingBag, AlertCircle, Gift } from 'lucide-react';
 
 export default function ProductDetailPage() {
@@ -36,11 +35,6 @@ export default function ProductDetailPage() {
   );
   const [selectedTier, setSelectedTier] = useState<BasketTier>(
     product.availableTiers ? product.availableTiers[0].tier : 'Standard'
-  );
-  const [customNote, setCustomNote] = useState(
-    language === 'th'
-      ? 'ขอให้มีความสุข สุขภาพร่างกายแข็งแรง สมปรารถนาในทุกสิ่งครับ'
-      : 'With deepest gratitude and celebration of the season.'
   );
   const [quantity, setQuantity] = useState(isMiniBox ? 10 : 1);
 
@@ -72,8 +66,7 @@ export default function ProductDetailPage() {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'Signature Atelier Silk Ribbon',
-      customNote,
+      ribbon: 'ผูกริบบิ้นฟรี',
       quantity,
     });
   };
@@ -82,8 +75,7 @@ export default function ProductDetailPage() {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'Signature Atelier Silk Ribbon',
-      customNote,
+      ribbon: 'ผูกริบบิ้นฟรี',
       quantity,
     });
   };
@@ -138,7 +130,7 @@ export default function ProductDetailPage() {
             <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
               <Gift className="w-4 h-4 text-secondary mx-auto mb-1" />
               <span className="font-semibold text-primary block">{language === 'th' ? 'บริการผูกริบบิ้นฟรี' : 'Complimentary'}</span>
-              <span>{language === 'th' ? 'พร้อมการ์ดเขียนลายมือ' : 'Silk Ribbon & Note'}</span>
+              <span>{language === 'th' ? 'ริบบิ้นตกแต่งสวยงาม' : 'Silk Ribbon Finishing'}</span>
             </div>
           </div>
         </div>
@@ -268,12 +260,6 @@ export default function ProductDetailPage() {
               </div>
             </div>
           )}
-
-          {/* Calligraphy Gift Builder Module (Included Complimentary) */}
-          <CalligraphyCardBuilder
-            initialNote={customNote}
-            onNoteChange={(n) => setCustomNote(n)}
-          />
 
           {/* Primary Action Buttons */}
           <div className="space-y-2 pt-2">

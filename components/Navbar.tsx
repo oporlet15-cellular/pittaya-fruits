@@ -13,26 +13,6 @@ export default function Navbar() {
   const { totalItems, setIsCartOpen, setIsLineModalOpen, setActiveLineMessage } = useCart();
   const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [timeLeft, setTimeLeft] = useState('2 ชม. 14 นาที 38 วินาที');
-
-  // Dynamic countdown timer for same-day dispatch window
-  useEffect(() => {
-    let seconds = 2 * 3600 + 14 * 60 + 38;
-    const timer = setInterval(() => {
-      if (seconds > 0) {
-        seconds--;
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        const s = seconds % 60;
-        if (language === 'th') {
-          setTimeLeft(`${h} ชม. ${m < 10 ? '0' : ''}${m} นาที ${s < 10 ? '0' : ''}${s} วิ`);
-        } else {
-          setTimeLeft(`${h}h ${m < 10 ? '0' : ''}${m}m ${s < 10 ? '0' : ''}${s}s`);
-        }
-      }
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [language]);
 
   const navLinks = [
     { href: '/', label: t('navHome') },
@@ -56,16 +36,15 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all">
-      {/* Dispatch Window Urgency Announcement Bar */}
+      {/* Authentic Store Status Announcement Bar */}
       <div className="bg-primary-container text-on-primary px-4 py-1.5 text-xs flex items-center justify-between shadow-inner">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 font-medium tracking-wide">
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-container"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
-            <span className="hidden sm:inline">{t('dispatchUrgency')}</span>
-            <span>{t('dispatchWindow')} <strong className="text-secondary-fixed tracking-wider font-semibold">{timeLeft}</strong> {t('dispatchTarget')}</span>
+            <span className="text-[11px] sm:text-xs truncate">{t('dispatchBarText')}</span>
           </div>
 
           <div className="flex items-center gap-3">

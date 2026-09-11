@@ -99,16 +99,6 @@ export default function CartDrawer() {
                     </button>
                   </div>
 
-                  {/* Custom Card Note Summary if set */}
-                  {item.customCardNote && (
-                    <div className="bg-surface-container-lowest p-2 rounded-lg text-xs italic text-on-surface border border-outline-variant/30">
-                      <span className="text-[10px] uppercase font-semibold text-secondary not-italic block mb-0.5">
-                        {language === 'th' ? 'ข้อความบนการ์ด:' : 'Handwritten Note:'}
-                      </span>
-                      "{item.customCardNote}"
-                    </div>
-                  )}
-
                   {/* Quantity Stepper */}
                   <div className="flex items-center justify-between pt-1">
                     <span className="text-xs text-on-surface-variant">
