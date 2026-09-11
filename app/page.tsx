@@ -8,7 +8,7 @@ import CalligraphyCardBuilder from '@/components/CalligraphyCardBuilder';
 import HowToOrderBar from '@/components/HowToOrderBar';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2, QrCode } from 'lucide-react';
+import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2 } from 'lucide-react';
 import { LINE_OA_CONFIG } from '@/lib/productsData';
 
 export default function HomePage() {
@@ -35,14 +35,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1 rounded-full text-xs font-semibold text-secondary uppercase tracking-widest">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-ping" />
-              <span>{t('heroBadge')}</span>
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-primary font-normal leading-[1.18] tracking-tight">
-              {t('heroTitle1')} <br />
-              <span className="italic text-secondary font-light">{t('heroTitle2')}</span>
+            <h1 className="font-serif text-primary font-normal tracking-tight">
+              <span className="block text-2xl sm:text-4xl lg:text-[46px] leading-[1.3] font-medium">
+                {t('heroTitle1')}
+              </span>
+              <span className="block mt-2.5 sm:mt-3.5 text-xl sm:text-3xl lg:text-[36px] italic text-secondary font-light leading-[1.4]">
+                {t('heroTitle2')}
+              </span>
             </h1>
 
             <p className="text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed">
@@ -56,14 +55,6 @@ export default function HomePage() {
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
                 <span>{t('addLineBtn')}</span>
-              </button>
-
-              <button
-                onClick={handleHeroLineChat}
-                className="bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-primary font-semibold py-3.5 px-5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
-              >
-                <QrCode className="w-4 h-4 text-secondary" />
-                <span>{t('scanQrBtn')}</span>
               </button>
 
               <Link
