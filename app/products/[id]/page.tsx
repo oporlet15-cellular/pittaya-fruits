@@ -110,8 +110,8 @@ export default function ProductDetailPage() {
               className="w-full h-full object-cover"
             />
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-              <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-primary uppercase shadow-sm">
-                {product.brixIndex}
+              <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-primary shadow-sm">
+                {language === 'th' ? 'คัดสดใหม่ทุกวัน' : 'Fresh Daily'}
               </span>
               {isMiniBox && (
                 <span className="bg-secondary text-on-secondary px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
@@ -127,13 +127,13 @@ export default function ProductDetailPage() {
           <div className="grid grid-cols-3 gap-3 text-xs text-on-surface-variant text-center">
             <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
               <ShieldCheck className="w-4 h-4 text-secondary mx-auto mb-1" />
-              <span className="font-semibold text-primary block">{language === 'th' ? 'รับประกันความหวาน' : '100% Ripeness'}</span>
-              <span>{language === 'th' ? 'ตรวจวัด Brix ทุกล็อต' : 'Brix Tested'}</span>
+              <span className="font-semibold text-primary block">{language === 'th' ? 'รับประกันความสดใหม่' : 'Freshness Guaranteed'}</span>
+              <span>{language === 'th' ? 'คัดผลไม้สดทุกวัน' : 'Hand-Selected Daily'}</span>
             </div>
             <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
               <Truck className="w-4 h-4 text-secondary mx-auto mb-1" />
-              <span className="font-semibold text-primary block">{language === 'th' ? 'รถส่งควบคุมความเย็น' : 'Thermal Vault'}</span>
-              <span>{language === 'th' ? 'ส่งด่วนทั่วกรุงเทพฯ' : 'Courier in BKK'}</span>
+              <span className="font-semibold text-primary block">{language === 'th' ? 'จัดส่งรถยนต์ถึงที่' : 'Platform Car Delivery'}</span>
+              <span>{language === 'th' ? 'คิดตามระยะทางจริง' : 'Fee by Distance'}</span>
             </div>
             <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
               <Gift className="w-4 h-4 text-secondary mx-auto mb-1" />

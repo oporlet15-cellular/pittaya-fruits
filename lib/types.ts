@@ -8,7 +8,7 @@ export interface Product {
   category: 'basket' | 'gift-box' | 'mini-box';
   subtitle: string;
   description: string;
-  brixIndex: string; // e.g. "Peak 18° Brix"
+  brixIndex?: string;
   lotNumber: string;
   basePrice: number;
   image: string;

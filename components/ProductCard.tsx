@@ -66,8 +66,8 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-            <span className="bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-semibold text-primary uppercase shadow-sm">
-              {product.brixIndex}
+            <span className="bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-semibold text-primary shadow-sm">
+              {language === 'th' ? 'คัดสดใหม่ทุกวัน' : 'Fresh Daily'}
             </span>
             {product.isLimitedRelease && (
               <span className="bg-secondary text-on-secondary px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider">

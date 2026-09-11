@@ -198,7 +198,7 @@ export default function Footer() {
               Google Maps Pin
             </a>
             <span>•</span>
-            <span className="hover:text-primary transition-colors cursor-pointer">Brix Quality Policy</span>
+            <span className="hover:text-primary transition-colors cursor-pointer">{language === 'th' ? 'มาตรฐานความสดใหม่' : 'Freshness Policy'}</span>
             <span>•</span>
             <span className="hover:text-primary transition-colors cursor-pointer">Courier Terms</span>
           </div>
