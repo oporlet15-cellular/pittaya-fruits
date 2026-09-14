@@ -197,7 +197,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!isMiniBox) {
       message += `🎀 *บริการ:* ผูกริบบิ้นฟรี\n`;
     } else {
-      message += `🍱 *รูปแบบ:* เซ็ตจัดเบรค (ไม่รวมริบบิ้น / พร้อมส้อมไม้)\n`;
+      message += `🍱 *รูปแบบ:* เซ็ตผลไม้จัดเบรค (พร้อมส้อมไม้)\n`;
     }
     message += `🔢 *จำนวน:* ${quantity} ${isMiniBox ? 'กล่อง' : 'ชิ้น'}\n`;
     message += `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`;
@@ -223,7 +223,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (!isItemMiniBox) {
         message += `   • บริการ: ผูกริบบิ้นฟรี\n`;
       } else {
-        message += `   • รูปแบบ: เซ็ตจัดเบรค (ไม่รวมริบบิ้น)\n`;
+        message += `   • รูปแบบ: เซ็ตจัดเบรค (พร้อมส้อมไม้)\n`;
       }
       message += `   • จำนวน: ${item.quantity} ${isItemMiniBox ? 'กล่อง' : 'ชิ้น'} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
     });

@@ -131,7 +131,7 @@ export default function ProductDetailPage() {
               <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
                 <Utensils className="w-4 h-4 text-secondary mx-auto mb-1" />
                 <span className="font-semibold text-primary block">{language === 'th' ? 'พร้อมส้อมไม้' : 'Eco Fork'}</span>
-                <span>{language === 'th' ? 'ไม่รวมริบบิ้น' : 'Excl. Ribbon'}</span>
+                <span>{language === 'th' ? 'ทานสะดวกทุกกล่อง' : 'Ready to Enjoy'}</span>
               </div>
             ) : (
               <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">

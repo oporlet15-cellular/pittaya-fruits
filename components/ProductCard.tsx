@@ -157,7 +157,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Complimentary Ribbon Badge (Baskets/Gift Boxes) or Eco Fork / Exclude Ribbon (Mini Boxes) */}
+        {/* Complimentary Ribbon Badge (Baskets/Gift Boxes) or Eco Fork Badge (Mini Boxes) */}
         {product.category !== 'mini-box' ? (
           <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-primary flex items-center gap-1.5">
             <Gift className="w-3.5 h-3.5 text-secondary shrink-0" />
