@@ -63,9 +63,6 @@ export const TRANSLATIONS = {
     selectBasketSize: 'เลือกขนาดกระเช้า:',
     selectTier: 'เลือกระดับเกรดผลไม้:',
     eventQtyLabel: 'จำนวนเซ็ตจัดเบรค (ขั้นต่ำ 10 กล่อง):',
-    customNoteLabel: 'ระบุข้อความอวยพรบนการ์ด:',
-    cardPreviewLabel: 'ตัวอย่างการ์ดเขียนมือจริงบนกระดาษพาร์ชเมนต์:',
-    attachNoteBtn: 'บันทึกข้อความ & สั่งซื้อผ่าน LINE OA',
 
     // Catalog Page
     catalogCategoryBadge: 'รายการสินค้าทั้งหมด',
@@ -112,17 +109,6 @@ export const TRANSLATIONS = {
     cartTotalLabel: 'ยอดรวมสินค้าโดยประมาณ:',
     cartLineNotice: 'ยอดนี้ยังไม่รวมค่าจัดส่งรถยนต์ (คิดตามระยะทางจริงในแชท LINE)',
     cartProceedBtn: 'ส่งรายการเข้า LINE OA เพื่อสั่งซื้อ',
-
-    // Calligraphy Builder
-    calligraphyTitle: 'การ์ดเขียนลายมือ & ริบบิ้น (ฟรี)',
-    calligraphyIncludedBadge: 'รวมให้ฟรีทุกกระเช้าและกล่องของขวัญ',
-    calligraphyLabel: 'ระบุข้อความอวยพรบนการ์ด:',
-    calligraphyCharCount: 'ตัวอักษร',
-    calligraphyPlaceholder: 'พิมพ์ข้อความอวยพรที่นี่ เช่น ขอให้สุขภาพแข็งแรง และมีความสุขในทุกๆ วัน...',
-    calligraphyPreviewLabel: 'ตัวอย่างการ์ดลายมือบนกระดาษพาร์ชเมนต์:',
-    calligraphyInkNotice: 'เขียนการ์ดอวยพรด้วยมือทุกใบ',
-    calligraphySilkNotice: 'ผูกริบบิ้นสวยงามฟรีทุกชิ้น',
-    calligraphyConsultBtn: 'บันทึกข้อความ & ปรึกษาใน LINE OA',
 
     // Testimonials
     patronBadge: 'ความประทับใจจากลูกค้าประจำ',
@@ -210,9 +196,6 @@ export const TRANSLATIONS = {
     selectBasketSize: 'Select Basket Size:',
     selectTier: 'Selection Tier:',
     eventQtyLabel: 'Event Pack Quantity (Min. 10 Boxes):',
-    customNoteLabel: 'Enter Custom Gift Note Message:',
-    cardPreviewLabel: 'Real-Time Calligraphy Parchment Card Preview:',
-    attachNoteBtn: 'Attach Note & Order on LINE OA',
 
     // Catalog Page
     catalogCategoryBadge: 'Full Catalog',
@@ -259,17 +242,6 @@ export const TRANSLATIONS = {
     cartTotalLabel: 'Estimated Product Total:',
     cartLineNotice: 'Excludes car delivery fee (calculated based on distance in LINE chat).',
     cartProceedBtn: 'Proceed to LINE OA to Order',
-
-    // Calligraphy Builder
-    calligraphyTitle: 'Complimentary Handwritten Card & Ribbon Wrap',
-    calligraphyIncludedBadge: 'Included Free with Every Basket & Box',
-    calligraphyLabel: 'Enter Custom Gift Note Message:',
-    calligraphyCharCount: 'chars',
-    calligraphyPlaceholder: 'Type your custom gift message here...',
-    calligraphyPreviewLabel: 'Real-Time Card Preview:',
-    calligraphyInkNotice: 'Handwritten with care for every gift',
-    calligraphySilkNotice: 'Tied with signature presentation ribbon',
-    calligraphyConsultBtn: 'Attach Gift Note & Consult on LINE OA',
 
     // Testimonials
     patronBadge: 'Customer Stories',

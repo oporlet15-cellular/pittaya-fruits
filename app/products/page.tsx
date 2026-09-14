@@ -1,18 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { PRODUCTS, LINE_OA_CONFIG } from '@/lib/productsData';
 import ProductCard from '@/components/ProductCard';
 import { Search, SlidersHorizontal, MessageSquare } from 'lucide-react';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
 
-export default function ProductsPage() {
+function ProductsContent() {
+  const searchParams = useSearchParams();
   const { setActiveLineMessage, setIsLineModalOpen } = useCart();
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortBy, setSortBy] = useState<'default' | 'price-low' | 'price-high'>('default');
+
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && ['all', 'basket', 'gift-box', 'mini-box'].includes(cat)) {
+      setSelectedCategory(cat);
+    }
+  }, [searchParams]);
 
   const filtered = PRODUCTS.filter((p) => {
     const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
@@ -132,5 +141,13 @@ export default function ProductsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto px-4 py-16 text-center text-xs text-on-surface-variant">กำลังโหลดรายการสินค้า...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }
