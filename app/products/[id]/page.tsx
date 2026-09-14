@@ -65,7 +65,7 @@ export default function ProductDetailPage() {
   const handleOrderOnLine = () => {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
-      tier: product.category === 'basket' ? selectedTier : undefined,
+      tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
       ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
       quantity,
     });
@@ -74,7 +74,7 @@ export default function ProductDetailPage() {
   const handleAddToBag = () => {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
-      tier: product.category === 'basket' ? selectedTier : undefined,
+      tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
       ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
       quantity,
     });

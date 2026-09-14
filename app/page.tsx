@@ -92,12 +92,12 @@ export default function HomePage() {
               />
               <div className="absolute bottom-4 left-4 right-4 text-primary p-3.5 rounded-xl bg-surface-container-low/95 backdrop-blur-md border border-outline-variant/40 shadow-sm">
                 <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold block">
-                  Lot #042 Grand Reserve
+                  Lot #042 Grand Premium
                 </span>
-                <p className="font-serif text-sm font-semibold text-primary">กระเช้าผลไม้สด Pittaya Grand Basket</p>
+                <p className="font-serif text-sm font-semibold text-primary">กระเช้าผลไม้พรีเมียมนำเข้า Pittaya Grand Premium</p>
                 <div className="flex items-center justify-between text-xs mt-1 text-on-surface-variant">
                   <span>ขนาด 12", 14", 16"</span>
-                  <span className="font-bold text-secondary">฿1,000 – ฿3,500 THB</span>
+                  <span className="font-bold text-secondary">฿1,500 – ฿3,500 THB</span>
                 </div>
               </div>
             </div>
