@@ -84,21 +84,20 @@ export default function HomePage() {
 
           {/* Right Image Feature */}
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/40 bg-surface-container">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/40 bg-white">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSUb-V5i1CsXqJmKvCQdb0A0t3PqruJP0c9X5Rxko74-_HuQ9tQMuSEi80vRisGCAdVCcXqxLkhT6JejveuLUTBZt-iUsV0bxfT8iH16C5Nq0ZY_TaHRTe9x1TnXP_Ygq5d4pPvEJbzOVoJigEt0BeO0epoWTuswVt6-FPACP_7OfrMLnHt-0HcNFS0RLnnVRQE2JUuHACNFd0-oqSSzrEqoksCNiY55woviBG6GBfLoCXjvxNDYOo"
+                src="/placeholder-white.svg"
                 alt="กระเช้าผลไม้พรีเมียม Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง)"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-6 bg-white"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white p-3.5 rounded-xl bg-primary/50 backdrop-blur-md border border-white/20">
-                <span className="text-[10px] uppercase tracking-widest text-secondary-fixed font-semibold block">
+              <div className="absolute bottom-4 left-4 right-4 text-primary p-3.5 rounded-xl bg-surface-container-low/95 backdrop-blur-md border border-outline-variant/40 shadow-sm">
+                <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold block">
                   Lot #042 Grand Reserve
                 </span>
-                <p className="font-serif text-sm font-semibold">กระเช้าผลไม้สด Pittaya Grand Basket</p>
-                <div className="flex items-center justify-between text-xs mt-1">
+                <p className="font-serif text-sm font-semibold text-primary">กระเช้าผลไม้สด Pittaya Grand Basket</p>
+                <div className="flex items-center justify-between text-xs mt-1 text-on-surface-variant">
                   <span>ขนาด 12", 14", 16"</span>
-                  <span className="font-bold text-secondary-fixed">฿1,000 – ฿3,500 THB</span>
+                  <span className="font-bold text-secondary">฿1,000 – ฿3,500 THB</span>
                 </div>
               </div>
             </div>

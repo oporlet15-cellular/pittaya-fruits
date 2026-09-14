@@ -95,11 +95,11 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Image Showcase */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface-container border border-outline-variant/40 shadow-sm">
+          <div className="relative aspect-square rounded-2xl overflow-hidden bg-white border border-outline-variant/40 shadow-sm">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-8 bg-white"
             />
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
               <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-primary shadow-sm">

@@ -57,11 +57,11 @@ export default function ProductCard({ product }: ProductCardProps) {
     <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-4 sm:p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-all group">
       <div className="space-y-4">
         {/* Product Image Frame */}
-        <div className="relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg bg-surface-container border border-outline-variant/30">
+        <div className="relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg bg-white border border-outline-variant/30">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain p-4 bg-white group-hover:scale-105 transition-transform duration-500"
           />
 
           {/* Badges */}
