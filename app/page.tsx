@@ -97,7 +97,7 @@ export default function HomePage() {
                 <p className="font-serif text-sm font-semibold text-primary">กระเช้าผลไม้พรีเมียมนำเข้า Pittaya Grand Premium</p>
                 <div className="flex items-center justify-between text-xs mt-1 text-on-surface-variant">
                   <span>ขนาด 12", 14", 16"</span>
-                  <span className="font-bold text-secondary">฿1,500 – ฿3,500 THB</span>
+                  <span className="font-bold text-secondary">฿1,500 – ฿4,000 THB</span>
                 </div>
               </div>
             </div>

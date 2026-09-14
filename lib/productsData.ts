@@ -15,8 +15,8 @@ export const PRODUCTS: Product[] = [
     stockRemaining: 15,
     availableSizes: [
       { size: '12"', label: 'ขนาด 12" (฿1,000)', fruitCount: 'เหมาะสำหรับ 2-3 ท่าน', priceModifier: 0 },
-      { size: '14"', label: 'ขนาด 14" (฿2,000)', fruitCount: 'เหมาะสำหรับ 4-6 ท่าน', priceModifier: 1000 },
-      { size: '16"', label: 'ขนาด 16" (฿3,000)', fruitCount: 'เหมาะสำหรับ 8 ท่านขึ้นไป', priceModifier: 2000 },
+      { size: '14"', label: 'ขนาด 14" (฿1,500)', fruitCount: 'เหมาะสำหรับ 4-6 ท่าน', priceModifier: 500 },
+      { size: '16"', label: 'ขนาด 16" (฿2,500)', fruitCount: 'เหมาะสำหรับ 8 ท่านขึ้นไป', priceModifier: 1500 },
     ],
   },
   {
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     availableSizes: [
       { size: '12"', label: 'ขนาด 12" (฿1,500)', fruitCount: 'เหมาะสำหรับ 2-3 ท่าน', priceModifier: 0 },
       { size: '14"', label: 'ขนาด 14" (฿2,500)', fruitCount: 'เหมาะสำหรับ 4-6 ท่าน', priceModifier: 1000 },
-      { size: '16"', label: 'ขนาด 16" (฿3,500)', fruitCount: 'เหมาะสำหรับ 8 ท่านขึ้นไป', priceModifier: 2000 },
+      { size: '16"', label: 'ขนาด 16" (฿4,000)', fruitCount: 'เหมาะสำหรับ 8 ท่านขึ้นไป', priceModifier: 2500 },
     ],
   },
   {
