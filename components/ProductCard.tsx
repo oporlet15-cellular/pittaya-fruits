@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Product, BasketSize, BasketTier } from '@/lib/types';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import { MessageSquare, Sparkles, Check, ArrowRight, Shield, Gift } from 'lucide-react';
+import { MessageSquare, Sparkles, Check, ArrowRight, Shield, Gift, Utensils } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'ผูกริบบิ้นฟรี',
+      ribbon: product.category === 'mini-box' ? undefined : 'ผูกริบบิ้นฟรี',
     });
   };
 
@@ -47,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'ผูกริบบิ้นฟรี',
+      ribbon: product.category === 'mini-box' ? undefined : 'ผูกริบบิ้นฟรี',
     });
   };
 
@@ -157,11 +157,18 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Complimentary Silk Ribbon & Calligraphy Card Inclusion Badge */}
-        <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-primary flex items-center gap-1.5">
-          <Gift className="w-3.5 h-3.5 text-secondary shrink-0" />
-          <span className="font-medium">{t('freeGiftWrapBadge')}</span>
-        </div>
+        {/* Complimentary Ribbon Badge (Baskets/Gift Boxes) or Eco Fork / Exclude Ribbon (Mini Boxes) */}
+        {product.category !== 'mini-box' ? (
+          <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-primary flex items-center gap-1.5">
+            <Gift className="w-3.5 h-3.5 text-secondary shrink-0" />
+            <span className="font-medium">{t('freeGiftWrapBadge')}</span>
+          </div>
+        ) : (
+          <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-on-surface-variant flex items-center gap-1.5">
+            <Utensils className="w-3.5 h-3.5 text-secondary shrink-0" />
+            <span className="font-medium">{t('eventNoRibbonBadge')}</span>
+          </div>
+        )}
 
         {/* Highlights Tags */}
         <div className="flex flex-wrap gap-1.5 pt-0.5">

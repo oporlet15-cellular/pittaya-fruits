@@ -7,7 +7,7 @@ import { PRODUCTS } from '@/lib/productsData';
 import { BasketSize, BasketTier } from '@/lib/types';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import { MessageSquare, ArrowLeft, Check, Sparkles, ShieldCheck, Truck, ShoppingBag, AlertCircle, Gift } from 'lucide-react';
+import { MessageSquare, ArrowLeft, Check, Sparkles, ShieldCheck, Truck, ShoppingBag, AlertCircle, Gift, Utensils } from 'lucide-react';
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -66,7 +66,7 @@ export default function ProductDetailPage() {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'ผูกริบบิ้นฟรี',
+      ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
       quantity,
     });
   };
@@ -75,7 +75,7 @@ export default function ProductDetailPage() {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: product.category === 'basket' ? selectedTier : undefined,
-      ribbon: 'ผูกริบบิ้นฟรี',
+      ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
       quantity,
     });
   };
@@ -127,11 +127,19 @@ export default function ProductDetailPage() {
               <span className="font-semibold text-primary block">{language === 'th' ? 'จัดส่งรถยนต์ถึงที่' : 'Platform Car Delivery'}</span>
               <span>{language === 'th' ? 'คิดตามระยะทางจริง' : 'Fee by Distance'}</span>
             </div>
-            <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
-              <Gift className="w-4 h-4 text-secondary mx-auto mb-1" />
-              <span className="font-semibold text-primary block">{language === 'th' ? 'บริการผูกริบบิ้นฟรี' : 'Complimentary'}</span>
-              <span>{language === 'th' ? 'ริบบิ้นตกแต่งสวยงาม' : 'Silk Ribbon Finishing'}</span>
-            </div>
+            {isMiniBox ? (
+              <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
+                <Utensils className="w-4 h-4 text-secondary mx-auto mb-1" />
+                <span className="font-semibold text-primary block">{language === 'th' ? 'พร้อมส้อมไม้' : 'Eco Fork'}</span>
+                <span>{language === 'th' ? 'ไม่รวมริบบิ้น' : 'Excl. Ribbon'}</span>
+              </div>
+            ) : (
+              <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
+                <Gift className="w-4 h-4 text-secondary mx-auto mb-1" />
+                <span className="font-semibold text-primary block">{language === 'th' ? 'บริการผูกริบบิ้นฟรี' : 'Complimentary'}</span>
+                <span>{language === 'th' ? 'ริบบิ้นตกแต่งสวยงาม' : 'Silk Ribbon Finishing'}</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -142,10 +150,17 @@ export default function ProductDetailPage() {
               <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
                 {language === 'th' ? 'สินค้าพรีเมียมคัดสรร' : 'Atelier Selection'}
               </span>
-              <span className="bg-line-green/10 text-line-dark text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <Gift className="w-3 h-3" />
-                {t('freeGiftWrapBadge')}
-              </span>
+              {isMiniBox ? (
+                <span className="bg-surface-container-high text-on-surface-variant text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <Utensils className="w-3 h-3" />
+                  {t('eventNoRibbonBadge')}
+                </span>
+              ) : (
+                <span className="bg-line-green/10 text-line-dark text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <Gift className="w-3 h-3" />
+                  {t('freeGiftWrapBadge')}
+                </span>
+              )}
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-primary">{product.name}</h1>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">

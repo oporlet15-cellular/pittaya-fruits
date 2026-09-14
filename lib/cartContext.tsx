@@ -96,7 +96,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   ) => {
     const size = options?.size || (product.availableSizes ? product.availableSizes[0].size : undefined);
     const tier = options?.tier || (product.availableTiers ? product.availableTiers[0].tier : undefined);
-    const ribbon: RibbonColor = 'ผูกริบบิ้นฟรี';
+    const isMiniBox = product.category === 'mini-box';
+    const ribbon: RibbonColor | undefined = isMiniBox ? undefined : 'ผูกริบบิ้นฟรี';
     const customNote = options?.customNote || '';
     const quantity = options?.quantity || 1;
 
@@ -138,7 +139,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const removeFromCart = (cartItemId: string) => {
-    setCart((prev) => prev.filter((item) => item.id !== cartItemId));
+    setCart((prevCart) => prevCart.filter((item) => item.id !== cartItemId));
   };
 
   const updateQuantity = (cartItemId: string, newQty: number) => {
@@ -147,20 +148,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return;
     }
 
-    setCart((prev) =>
-      prev.map((item) => {
+    setCart((prevCart) =>
+      prevCart.map((item) => {
         if (item.id === cartItemId) {
-          const unitPrice = calculateUnitPrice(
-            item.product,
-            item.selectedSize,
-            item.selectedTier,
-            newQty
-          );
+          const minAllowed = item.product.category === 'mini-box' ? 10 : 1;
+          const actualQty = Math.max(minAllowed, newQty);
+          const newUnitPrice = calculateUnitPrice(item.product, item.selectedSize, item.selectedTier, actualQty);
           return {
             ...item,
-            quantity: newQty,
-            unitPrice,
-            totalPrice: unitPrice * newQty,
+            quantity: actualQty,
+            unitPrice: newUnitPrice,
+            totalPrice: newUnitPrice * actualQty,
           };
         }
         return item;
@@ -183,6 +181,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       quantity?: number;
     }
   ) => {
+    const isMiniBox = product.category === 'mini-box';
     const size = options?.size || (product.availableSizes ? product.availableSizes[0].size : undefined);
     const tier = options?.tier || (product.availableTiers ? product.availableTiers[0].tier : undefined);
     const customNote = options?.customNote || '';
@@ -195,8 +194,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     message += `📦 *สินค้า:* ${product.name}\n`;
     if (size) message += `📐 *ขนาด:* ${size}\n`;
     if (tier) message += `⭐ *เกรด:* ${tier}\n`;
-    message += `🎀 *บริการ:* ผูกริบบิ้นฟรี\n`;
-    message += `🔢 *จำนวน:* ${quantity} ชิ้น\n`;
+    if (!isMiniBox) {
+      message += `🎀 *บริการ:* ผูกริบบิ้นฟรี\n`;
+    } else {
+      message += `🍱 *รูปแบบ:* เซ็ตจัดเบรค (ไม่รวมริบบิ้น / พร้อมส้อมไม้)\n`;
+    }
+    message += `🔢 *จำนวน:* ${quantity} ${isMiniBox ? 'กล่อง' : 'ชิ้น'}\n`;
     message += `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`;
     message += `🚗 *การจัดส่ง:* จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)\n`;
     message += `--------------------------------------\n`;
@@ -213,11 +216,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     message += `--------------------------------------\n`;
 
     cart.forEach((item, index) => {
+      const isItemMiniBox = item.product.category === 'mini-box';
       message += `[${index + 1}] *${item.product.name}*\n`;
       if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
       if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
-      message += `   • บริการ: ผูกริบบิ้นฟรี\n`;
-      message += `   • จำนวน: ${item.quantity} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
+      if (!isItemMiniBox) {
+        message += `   • บริการ: ผูกริบบิ้นฟรี\n`;
+      } else {
+        message += `   • รูปแบบ: เซ็ตจัดเบรค (ไม่รวมริบบิ้น)\n`;
+      }
+      message += `   • จำนวน: ${item.quantity} ${isItemMiniBox ? 'กล่อง' : 'ชิ้น'} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
     });
 
     message += `--------------------------------------\n`;

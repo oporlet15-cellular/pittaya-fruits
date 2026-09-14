@@ -5,7 +5,7 @@ import { PRODUCTS, LINE_OA_CONFIG } from '@/lib/productsData';
 import ProductCard from '@/components/ProductCard';
 import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
-import { MessageSquare, PartyPopper, AlertCircle } from 'lucide-react';
+import { MessageSquare, PartyPopper, AlertCircle, Utensils } from 'lucide-react';
 
 export default function EventsAndActivitiesPage() {
   const { setActiveLineMessage, setIsLineModalOpen } = useCart();
@@ -85,9 +85,15 @@ export default function EventsAndActivitiesPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1.5 rounded-xl text-xs text-secondary font-semibold self-start sm:self-auto">
-            <AlertCircle className="w-4 h-4" />
-            <span>{t('min10Notice')}</span>
+          <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+            <div className="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1.5 rounded-xl text-xs text-secondary font-semibold">
+              <AlertCircle className="w-4 h-4" />
+              <span>{t('min10Notice')}</span>
+            </div>
+            <div className="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/40 px-3 py-1.5 rounded-xl text-xs text-on-surface-variant font-medium">
+              <Utensils className="w-3.5 h-3.5 text-secondary" />
+              <span>{t('eventNoRibbonBadge')}</span>
+            </div>
           </div>
         </div>
 

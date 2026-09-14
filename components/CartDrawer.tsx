@@ -84,9 +84,15 @@ export default function CartDrawer() {
                             {item.selectedTier}
                           </span>
                         )}
-                        <span className="bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/40 text-on-surface-variant">
-                          {language === 'th' ? 'ริบบิ้นผ้าไหม' : 'Silk Ribbon'}
-                        </span>
+                        {item.product.category !== 'mini-box' ? (
+                          <span className="bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/40 text-on-surface-variant">
+                            {language === 'th' ? 'ริบบิ้นผ้าไหม' : 'Silk Ribbon'}
+                          </span>
+                        ) : (
+                          <span className="bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/40 text-on-surface-variant/70 italic">
+                            {language === 'th' ? 'ไม่รวมริบบิ้น' : 'Excl. Ribbon'}
+                          </span>
+                        )}
                       </div>
                     </div>
 

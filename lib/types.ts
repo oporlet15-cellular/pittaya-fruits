@@ -38,7 +38,7 @@ export interface CartItem {
   product: Product;
   selectedSize?: BasketSize;
   selectedTier?: BasketTier;
-  selectedRibbon: RibbonColor;
+  selectedRibbon?: RibbonColor;
   customCardNote: string;
   quantity: number;
   unitPrice: number;
