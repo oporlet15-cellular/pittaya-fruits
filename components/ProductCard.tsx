@@ -92,7 +92,9 @@ export default function ProductCard({ product }: ProductCardProps) {
                 ? (language === 'th' ? 'กล่องของขวัญผลไม้' : 'Signature Gift Box')
                 : (language === 'th' ? 'ผลไม้จัดเบรค & สัมมนา' : 'Event & Activity Pack')}
             </span>
-            <span className="text-outline font-mono text-[10px]">{product.lotNumber}</span>
+            <span className="text-on-surface-variant font-mono text-[10px] font-medium bg-surface-container-low px-1.5 py-0.5 rounded border border-outline-variant/40">
+              {language === 'th' ? `รหัส: ${product.lotNumber}` : `SKU: ${product.lotNumber}`}
+            </span>
           </div>
           <h3 className="font-serif text-base sm:text-lg text-primary font-semibold group-hover:text-secondary transition-colors leading-snug">
             <Link href={`/products/${product.id}`}>{product.name}</Link>

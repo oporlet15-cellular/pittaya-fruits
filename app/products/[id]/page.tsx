@@ -110,8 +110,8 @@ export default function ProductDetailPage() {
                   {t('minOrder10Badge')}
                 </span>
               )}
-              <span className="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-mono">
-                {product.lotNumber}
+              <span className="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-mono font-medium">
+                {language === 'th' ? `รหัส: ${product.lotNumber}` : `SKU: ${product.lotNumber}`}
               </span>
             </div>
           </div>

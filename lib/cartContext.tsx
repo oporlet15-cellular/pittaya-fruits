@@ -191,7 +191,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     let message = `🌿 *ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) — สนใจสั่งซื้อ*\n`;
     message += `--------------------------------------\n`;
-    message += `📦 *สินค้า:* ${product.name}\n`;
+    message += `📦 *สินค้า:* ${product.name} (รหัส: ${product.lotNumber})\n`;
     if (size) message += `📐 *ขนาด:* ${size}\n`;
     if (tier) message += `⭐ *เกรด:* ${tier}\n`;
     if (!isMiniBox) {
@@ -217,7 +217,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     cart.forEach((item, index) => {
       const isItemMiniBox = item.product.category === 'mini-box';
-      message += `[${index + 1}] *${item.product.name}*\n`;
+      message += `[${index + 1}] *${item.product.name}* (รหัส: ${item.product.lotNumber})\n`;
       if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
       if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
       if (!isItemMiniBox) {
