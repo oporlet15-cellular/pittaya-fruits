@@ -10,6 +10,7 @@ import { useLanguage } from '@/lib/languageContext';
 import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2, Quote } from 'lucide-react';
 import { LINE_OA_CONFIG } from '@/lib/productsData';
 import ScrollReveal from '@/components/ScrollReveal';
+import HeroShowcase from '@/components/HeroShowcase';
 
 export default function HomePage() {
   const { setActiveLineMessage, setIsLineModalOpen } = useCart();
@@ -83,25 +84,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right Image Feature */}
-          <div className="lg:col-span-5 relative animate-fade-in-up [animation-delay:200ms]">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/40 bg-white hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-500 ease-out group">
-              <img
-                src="/placeholder-white.svg"
-                alt="กระเช้าผลไม้พรีเมียม Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง)"
-                className="w-full h-full object-contain p-6 bg-white group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute bottom-4 left-4 right-4 text-primary p-3.5 rounded-xl bg-surface-container-low/95 backdrop-blur-md border border-outline-variant/40 shadow-sm">
-                <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold block">
-                  {language === 'th' ? 'รหัส: PT-020 • Grand Premium' : 'SKU: PT-020 • Grand Premium'}
-                </span>
-                <p className="font-serif text-sm font-semibold text-primary">กระเช้าผลไม้พรีเมียมนำเข้า Pittaya Grand Premium</p>
-                <div className="flex items-center justify-between text-xs mt-1 text-on-surface-variant">
-                  <span>ขนาด 12", 14", 16"</span>
-                  <span className="font-bold text-secondary">฿1,500 – ฿4,000 THB</span>
-                </div>
-              </div>
-            </div>
+          {/* Right Hero Visual Showcase Carousel */}
+          <div className="lg:col-span-5">
+            <HeroShowcase />
           </div>
         </div>
       </section>
