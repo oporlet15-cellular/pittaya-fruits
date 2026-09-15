@@ -107,9 +107,7 @@ export default function HomePage() {
       </section>
 
       {/* How to Order Bar */}
-      <ScrollReveal duration={700} distance={28}>
-        <HowToOrderBar />
-      </ScrollReveal>
+      <HowToOrderBar />
 
       {/* Product Categories Sales Funnel Rail */}
       <section className="space-y-8">

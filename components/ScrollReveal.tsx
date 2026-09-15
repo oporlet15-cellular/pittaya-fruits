@@ -32,6 +32,15 @@ export default function ScrollReveal({
     const element = domRef.current;
     if (!element) return;
 
+    // Check if element is already within viewport on mount
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,8 +49,8 @@ export default function ScrollReveal({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px',
       }
     );
 
@@ -50,7 +59,7 @@ export default function ScrollReveal({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [delay]);
 
   const getTransform = () => {
     if (isVisible) return 'none';
