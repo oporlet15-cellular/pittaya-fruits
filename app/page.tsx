@@ -9,6 +9,7 @@ import { useCart } from '@/lib/cartContext';
 import { useLanguage } from '@/lib/languageContext';
 import { MessageSquare, ArrowRight, Sparkles, ShieldCheck, Award, Star, Truck, HeartHandshake, CheckCircle2, Quote } from 'lucide-react';
 import { LINE_OA_CONFIG } from '@/lib/productsData';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default function HomePage() {
   const { setActiveLineMessage, setIsLineModalOpen } = useCart();
@@ -106,47 +107,59 @@ export default function HomePage() {
       </section>
 
       {/* How to Order Bar */}
-      <HowToOrderBar />
+      <ScrollReveal duration={700} distance={28}>
+        <HowToOrderBar />
+      </ScrollReveal>
 
       {/* Product Categories Sales Funnel Rail */}
       <section className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/40 pb-6">
-          <div>
-            <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
-              {t('collectionsBadge')}
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary font-semibold mt-1">
-              {t('collectionsTitle')}
-            </h2>
-          </div>
+        <ScrollReveal duration={600} distance={20}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/40 pb-6">
+            <div>
+              <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
+                {t('collectionsBadge')}
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary font-semibold mt-1">
+                {t('collectionsTitle')}
+              </h2>
+            </div>
 
-          {/* Filter Category Tabs */}
-          <div className="flex flex-wrap gap-2">
-            {[
-              { id: 'all', label: t('tabAll') },
-              { id: 'basket', label: t('tabBaskets') },
-              { id: 'gift-box', label: t('tabGiftBoxes') },
-              { id: 'mini-box', label: t('tabEventBoxes') },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 active:scale-95 ${
-                  activeCategory === tab.id
-                    ? 'bg-primary text-on-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
-                    : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant/40 hover:border-outline'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {/* Filter Category Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                { id: 'all', label: t('tabAll') },
+                { id: 'basket', label: t('tabBaskets') },
+                { id: 'gift-box', label: t('tabGiftBoxes') },
+                { id: 'mini-box', label: t('tabEventBoxes') },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveCategory(tab.id as any)}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 active:scale-95 ${
+                    activeCategory === tab.id
+                      ? 'bg-primary text-on-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                      : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant/40 hover:border-outline'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {filteredProducts.map((product, idx) => (
+            <ScrollReveal
+              key={product.id}
+              delay={(idx % 3) * 100}
+              duration={600}
+              distance={24}
+              className="h-full"
+            >
+              <ProductCard product={product} />
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -154,34 +167,36 @@ export default function HomePage() {
       {/* Verified Patron Reviews Section */}
       <section className="bg-surface-container-low/70 rounded-3xl p-6 sm:p-10 lg:p-12 border border-outline-variant/40 space-y-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/30 pb-6">
-          <div className="space-y-2">
-            <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
-              {t('patronBadge')}
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-primary font-semibold">
-              {t('patronTitle')}
-            </h2>
-            <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl leading-relaxed">
-              {t('patronSubtitle')}
-            </p>
-          </div>
-
-          {/* Rating Summary Card */}
-          <div className="flex items-center gap-3.5 bg-white px-5 py-3.5 rounded-2xl border border-outline-variant/40 shadow-sm self-start md:self-auto shrink-0">
-            <div className="text-3xl font-serif font-bold text-primary leading-none">5.0</div>
-            <div className="space-y-1">
-              <div className="flex text-amber-400 gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-[11px] text-on-surface-variant font-medium">
-                {t('patronRatingBadge')}
+        <ScrollReveal duration={600} distance={20}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/30 pb-6">
+            <div className="space-y-2">
+              <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
+                {t('patronBadge')}
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-primary font-semibold">
+                {t('patronTitle')}
+              </h2>
+              <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl leading-relaxed">
+                {t('patronSubtitle')}
               </p>
             </div>
+
+            {/* Rating Summary Card */}
+            <div className="flex items-center gap-3.5 bg-white px-5 py-3.5 rounded-2xl border border-outline-variant/40 shadow-sm self-start md:self-auto shrink-0">
+              <div className="text-3xl font-serif font-bold text-primary leading-none">5.0</div>
+              <div className="space-y-1">
+                <div className="flex text-amber-400 gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-[11px] text-on-surface-variant font-medium">
+                  {t('patronRatingBadge')}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Reviews Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -211,84 +226,93 @@ export default function HomePage() {
               tagColor: 'bg-amber-500/10 text-amber-800',
             },
           ].map((rev, idx) => (
-            <div
+            <ScrollReveal
               key={idx}
-              className="bg-white rounded-2xl p-6 border border-outline-variant/40 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-secondary/30 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group"
+              delay={idx * 120}
+              duration={600}
+              distance={24}
+              className="h-full"
             >
-              <div className="space-y-3.5">
-                {/* Stars & Quote Icon */}
-                <div className="flex items-center justify-between">
-                  <div className="flex text-amber-400 gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <Quote className="w-6 h-6 text-secondary/20 group-hover:text-secondary/40 transition-colors" />
-                </div>
-
-                {/* Review Text */}
-                <p className="text-primary text-sm leading-relaxed font-sans">
-                  “{rev.text}”
-                </p>
-              </div>
-
-              {/* Author Footer */}
-              <div className="pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-low text-primary font-bold text-xs flex items-center justify-center border border-outline-variant/40 shrink-0">
-                    {rev.initial}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1">
-                      <span className="font-semibold text-xs text-primary">{rev.author}</span>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <div
+                className="h-full bg-white rounded-2xl p-6 border border-outline-variant/40 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-secondary/30 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group"
+              >
+                <div className="space-y-3.5">
+                  {/* Stars & Quote Icon */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-amber-400 gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
                     </div>
-                    <span className="text-[11px] text-on-surface-variant block leading-tight">{rev.role}</span>
+                    <Quote className="w-6 h-6 text-secondary/20 group-hover:text-secondary/40 transition-colors" />
                   </div>
+
+                  {/* Review Text */}
+                  <p className="text-primary text-sm leading-relaxed font-sans">
+                    “{rev.text}”
+                  </p>
                 </div>
-                <span className={`text-[10px] ${rev.tagColor} px-2.5 py-1 rounded-full font-medium whitespace-nowrap`}>
-                  {rev.tag}
-                </span>
+
+                {/* Author Footer */}
+                <div className="pt-4 border-t border-outline-variant/30 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-surface-container-low text-primary font-bold text-xs flex items-center justify-center border border-outline-variant/40 shrink-0">
+                      {rev.initial}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1">
+                        <span className="font-semibold text-xs text-primary">{rev.author}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      </div>
+                      <span className="text-[11px] text-on-surface-variant block leading-tight">{rev.role}</span>
+                    </div>
+                  </div>
+                  <span className={`text-[10px] ${rev.tagColor} px-2.5 py-1 rounded-full font-medium whitespace-nowrap`}>
+                    {rev.tag}
+                  </span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       {/* Final LINE OA Sales Funnel Call to Action Banner */}
-      <section className="bg-primary text-on-primary rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
-        <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-          <span className="inline-block bg-line-green text-white text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-            {language === 'th' ? 'ปรึกษาและสั่งซื้อโดยตรงกับแอดมิน' : 'Instant Sommelier Consultation'}
-          </span>
+      <ScrollReveal duration={700} distance={28}>
+        <section className="bg-primary text-on-primary rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
+          <div className="max-w-2xl mx-auto space-y-6 relative z-10">
+            <span className="inline-block bg-line-green text-white text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+              {language === 'th' ? 'ปรึกษาและสั่งซื้อโดยตรงกับแอดมิน' : 'Instant Sommelier Consultation'}
+            </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-tight">
-            {language === 'th' ? 'พร้อมมอบกระเช้าผลไม้สุดพิเศษแล้วหรือยัง?' : 'Ready to Order Your Artisanal Harvest?'}
-          </h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-tight">
+              {language === 'th' ? 'พร้อมมอบกระเช้าผลไม้สุดพิเศษแล้วหรือยัง?' : 'Ready to Order Your Artisanal Harvest?'}
+            </h2>
 
-          <p className="text-xs sm:text-sm text-on-primary-container leading-relaxed">
-            {language === 'th'
-              ? 'ทักแชทสั่งซื้อผ่าน LINE OA ได้ทันที เราพร้อมจัดเตรียมผลไม้สดใหม่ ผูกริบบิ้นสวยงาม และจัดส่งด่วนถึงมือผู้รับอย่างประณีต'
-              : 'Chat directly with our team on LINE OA. We will confirm your preferred fruit varieties, basket sizes, ribbons, and dispatch time.'}
-          </p>
+            <p className="text-xs sm:text-sm text-on-primary-container leading-relaxed">
+              {language === 'th'
+                ? 'ทักแชทสั่งซื้อผ่าน LINE OA ได้ทันที เราพร้อมจัดเตรียมผลไม้สดใหม่ ผูกริบบิ้นสวยงาม และจัดส่งด่วนถึงมือผู้รับอย่างประณีต'
+                : 'Chat directly with our team on LINE OA. We will confirm your preferred fruit varieties, basket sizes, ribbons, and dispatch time.'}
+            </p>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={handleHeroLineChat}
-              className="w-full sm:w-auto bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-8 rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <MessageSquare className="w-4 h-4 fill-current" />
-              <span>{t('heroCtaOrder')}</span>
-            </button>
-            <Link
-              href="/corporate"
-              className="w-full sm:w-auto bg-surface-container-lowest/10 hover:bg-white/20 text-on-primary font-medium py-3.5 px-6 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-center"
-            >
-              {language === 'th' ? 'สอบถามเซ็ตผลไม้จัดเบรค' : 'Inquire Event Catering'}
-            </Link>
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={handleHeroLineChat}
+                className="w-full sm:w-auto bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-8 rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <MessageSquare className="w-4 h-4 fill-current" />
+                <span>{t('heroCtaOrder')}</span>
+              </button>
+              <Link
+                href="/corporate"
+                className="w-full sm:w-auto bg-surface-container-lowest/10 hover:bg-white/20 text-on-primary font-medium py-3.5 px-6 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-center"
+              >
+                {language === 'th' ? 'สอบถามเซ็ตผลไม้จัดเบรค' : 'Inquire Event Catering'}
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }
