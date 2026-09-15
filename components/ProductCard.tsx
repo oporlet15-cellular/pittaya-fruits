@@ -22,6 +22,15 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [selectedTier, setSelectedTier] = useState<BasketTier>(
     product.availableTiers ? product.availableTiers[0].tier : 'Standard'
   );
+  const [isPriceAnimating, setIsPriceAnimating] = useState(false);
+
+  const handleSizeChange = (size: BasketSize) => {
+    if (size !== selectedSize) {
+      setSelectedSize(size);
+      setIsPriceAnimating(true);
+      setTimeout(() => setIsPriceAnimating(false), 350);
+    }
+  };
 
   // Compute calculated price
   let currentPrice = product.basePrice;
@@ -54,14 +63,14 @@ export default function ProductCard({ product }: ProductCardProps) {
   const formattedPrice = currentPrice.toLocaleString('th-TH');
 
   return (
-    <article className="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-4 sm:p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-all group">
+    <article className="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-4 sm:p-5 flex flex-col justify-between space-y-4 hover:shadow-xl hover:-translate-y-1.5 hover:border-secondary/30 transition-all duration-300 ease-out group">
       <div className="space-y-4">
         {/* Product Image Frame */}
-        <div className="relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg bg-white border border-outline-variant/30">
+        <div className="relative w-full aspect-[4/3] sm:aspect-square overflow-hidden rounded-xl bg-white border border-outline-variant/30">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain p-4 bg-white group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain p-4 bg-white group-hover:scale-105 transition-transform duration-500 ease-out"
           />
 
           {/* Badges */}
@@ -76,9 +85,21 @@ export default function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
 
-          <div className="absolute bottom-3 right-3 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1 rounded-lg shadow-md flex items-baseline gap-1">
+          <div
+            className={`absolute bottom-3 right-3 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md flex items-baseline gap-1 transition-all duration-300 ${
+              isPriceAnimating
+                ? 'animate-price-pop ring-2 ring-secondary shadow-secondary/25 bg-surface-container-low scale-105'
+                : 'border border-outline-variant/30'
+            }`}
+          >
             <span className="text-[10px] text-on-surface-variant font-medium">THB</span>
-            <span className="font-serif text-lg text-primary font-bold">฿{formattedPrice}</span>
+            <span
+              className={`font-serif text-lg font-bold transition-colors duration-200 ${
+                isPriceAnimating ? 'text-secondary font-extrabold' : 'text-primary'
+              }`}
+            >
+              ฿{formattedPrice}
+            </span>
           </div>
         </div>
 
@@ -118,11 +139,11 @@ export default function ProductCard({ product }: ProductCardProps) {
                   <button
                     key={s.size}
                     type="button"
-                    onClick={() => setSelectedSize(s.size)}
-                    className={`py-1.5 px-2 rounded text-xs font-semibold transition-all ${
+                    onClick={() => handleSizeChange(s.size)}
+                    className={`py-1.5 px-2 rounded-lg text-xs font-semibold transition-all duration-200 active:scale-95 ${
                       selectedSize === s.size
-                        ? 'bg-primary text-on-primary shadow-sm'
-                        : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container border border-outline-variant/40'
+                        ? 'bg-primary text-on-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                        : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container border border-outline-variant/40 hover:border-outline'
                     }`}
                   >
                     {s.size}
@@ -190,23 +211,29 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="pt-2 space-y-2">
         <button
           onClick={handleOrderOnLine}
-          className="w-full bg-line-green hover:bg-line-dark text-white text-xs font-semibold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]"
+          className={`w-full text-white text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all duration-200 active:scale-[0.98] ${
+            isPriceAnimating
+              ? 'bg-line-dark ring-2 ring-line-green/50 shadow-md scale-[1.01]'
+              : 'bg-line-green hover:bg-line-dark'
+          }`}
         >
           <MessageSquare className="w-3.5 h-3.5 fill-current" />
-          <span>{t('btnPreOrderLine')} — ฿{formattedPrice}</span>
+          <span className={`transition-transform duration-200 ${isPriceAnimating ? 'scale-105 font-bold' : ''}`}>
+            {t('btnPreOrderLine')} — ฿{formattedPrice}
+          </span>
         </button>
 
         <div className="grid grid-cols-2 gap-2">
           <Link
             href={`/products/${product.id}`}
-            className="w-full bg-surface-container-low hover:bg-surface-container border border-outline-variant/50 text-primary text-xs font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-1 transition-colors text-center"
+            className="w-full bg-surface-container-low hover:bg-surface-container border border-outline-variant/50 text-primary text-xs font-medium py-2 px-3 rounded-lg flex items-center justify-center gap-1 transition-all active:scale-95 text-center"
           >
             <span>{t('btnCustomizeNote')}</span>
             <ArrowRight className="w-3 h-3" />
           </Link>
           <button
             onClick={handleAddToCart}
-            className="w-full bg-primary hover:bg-primary-container text-on-primary text-xs font-medium py-2 px-3 rounded-lg transition-colors"
+            className="w-full bg-primary hover:bg-primary-container text-on-primary text-xs font-medium py-2 px-3 rounded-lg transition-all active:scale-95"
           >
             {t('btnAddToBag')}
           </button>

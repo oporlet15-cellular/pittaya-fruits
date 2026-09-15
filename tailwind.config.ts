@@ -87,6 +87,26 @@ const config: Config = {
         serif: ["'Noto Serif Thai'", "'Noto Serif'", "serif"],
         sans: ["'Prompt'", "'Plus Jakarta Sans'", "sans-serif"],
       },
+      keyframes: {
+        pricePop: {
+          '0%': { transform: 'scale(1)' },
+          '40%': { transform: 'scale(1.12)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' },
+        },
+      },
+      animation: {
+        'price-pop': 'pricePop 350ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'fade-in-up': 'fadeInUp 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'pulse-glow': 'pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
     },
   },
   plugins: [],

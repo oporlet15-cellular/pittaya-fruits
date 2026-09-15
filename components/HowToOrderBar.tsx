@@ -66,14 +66,14 @@ export default function HowToOrderBar() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleStartOrder}
-            className="bg-line-green hover:bg-line-dark text-white font-semibold py-2.5 px-4 rounded-xl text-xs transition-all flex items-center justify-center gap-2 shadow-sm"
+            className="bg-line-green hover:bg-line-dark text-white font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
           >
             <MessageSquare className="w-3.5 h-3.5 fill-current" />
             <span>{t('addLineBtn')}</span>
           </button>
           <button
             onClick={handleStartOrder}
-            className="bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-primary font-semibold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm"
+            className="bg-surface-container-lowest hover:bg-surface-container-high border border-outline-variant text-primary font-semibold py-2.5 px-3 rounded-xl text-xs transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
           >
             <QrCode className="w-3.5 h-3.5 text-secondary" />
             <span>{t('scanQrBtn')}</span>
@@ -87,11 +87,11 @@ export default function HowToOrderBar() {
           return (
             <div
               key={idx}
-              className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/40 space-y-3 relative group hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between"
+              className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/40 space-y-3 relative group hover:border-secondary/40 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 ease-out flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center font-bold group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                     <Icon className="w-5 h-5" />
                   </div>
                   <span className="font-serif text-xl font-bold text-secondary/30 group-hover:text-secondary transition-colors">

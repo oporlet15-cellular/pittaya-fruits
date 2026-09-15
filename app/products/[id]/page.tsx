@@ -37,6 +37,15 @@ export default function ProductDetailPage() {
     product.availableTiers ? product.availableTiers[0].tier : 'Standard'
   );
   const [quantity, setQuantity] = useState(isMiniBox ? 10 : 1);
+  const [isPriceAnimating, setIsPriceAnimating] = useState(false);
+
+  const handleSizeChange = (size: BasketSize) => {
+    if (size !== selectedSize) {
+      setSelectedSize(size);
+      setIsPriceAnimating(true);
+      setTimeout(() => setIsPriceAnimating(false), 350);
+    }
+  };
 
   // Compute calculated price
   let unitPrice = product.basePrice;
@@ -170,7 +179,15 @@ export default function ProductDetailPage() {
 
           {/* Pricing Header */}
           <div className="flex items-baseline gap-3">
-            <span className="font-serif text-3xl font-bold text-primary">฿{formattedTotalPrice} THB</span>
+            <span
+              className={`font-serif text-3xl font-bold transition-all duration-200 ${
+                isPriceAnimating
+                  ? 'animate-price-pop text-secondary'
+                  : 'text-primary'
+              }`}
+            >
+              ฿{formattedTotalPrice} THB
+            </span>
             {quantity > 1 && (
               <span className="text-xs text-on-surface-variant font-medium">
                 (฿{formattedUnitPrice} THB / กล่อง × {quantity} กล่อง)
@@ -192,11 +209,11 @@ export default function ProductDetailPage() {
                   <button
                     key={s.size}
                     type="button"
-                    onClick={() => setSelectedSize(s.size)}
-                    className={`p-3 rounded-xl text-left border transition-all ${
+                    onClick={() => handleSizeChange(s.size)}
+                    className={`p-3 rounded-xl text-left border transition-all duration-200 active:scale-95 ${
                       selectedSize === s.size
-                        ? 'bg-primary text-on-primary border-primary shadow-sm'
-                        : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:border-outline'
+                        ? 'bg-primary text-on-primary border-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                        : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:border-outline hover:bg-surface-container'
                     }`}
                   >
                     <span className="font-serif font-bold text-sm block">{s.size}</span>

@@ -34,7 +34,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="font-serif text-primary font-normal tracking-tight">
+            <h1 className="font-serif text-primary font-normal tracking-tight animate-fade-in-up">
               <span className="block text-2xl sm:text-4xl lg:text-[46px] leading-[1.3] font-medium">
                 {t('heroTitle1')}
               </span>
@@ -43,14 +43,14 @@ export default function HomePage() {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed">
+            <p className="text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed animate-fade-in-up [animation-delay:150ms]">
               {t('heroDesc')}
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap gap-3 pt-2 animate-fade-in-up [animation-delay:250ms]">
               <button
                 onClick={handleHeroLineChat}
-                className="bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-6 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-md active:scale-[0.99]"
+                className="bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-6 rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
                 <span>{t('addLineBtn')}</span>
@@ -58,7 +58,7 @@ export default function HomePage() {
 
               <Link
                 href="/products"
-                className="bg-primary hover:bg-primary-container text-on-primary font-semibold py-3.5 px-6 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-sm text-center"
+                className="bg-primary hover:bg-primary-container text-on-primary font-semibold py-3.5 px-6 rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] text-center"
               >
                 <span>{t('heroCtaExplore')}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
 
             {/* Quick Specs Bar */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30 text-xs">
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30 text-xs animate-fade-in-up [animation-delay:350ms]">
               <div>
                 <span className="text-secondary font-serif text-base font-bold block">{t('heroSpec1Title')}</span>
                 <span className="text-on-surface-variant text-[11px]">{t('heroSpec1Sub')}</span>
@@ -83,12 +83,12 @@ export default function HomePage() {
           </div>
 
           {/* Right Image Feature */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/40 bg-white">
+          <div className="lg:col-span-5 relative animate-fade-in-up [animation-delay:200ms]">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-outline-variant/40 bg-white hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-500 ease-out group">
               <img
                 src="/placeholder-white.svg"
                 alt="กระเช้าผลไม้พรีเมียม Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง)"
-                className="w-full h-full object-contain p-6 bg-white"
+                className="w-full h-full object-contain p-6 bg-white group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute bottom-4 left-4 right-4 text-primary p-3.5 rounded-xl bg-surface-container-low/95 backdrop-blur-md border border-outline-variant/40 shadow-sm">
                 <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold block">
@@ -131,10 +131,10 @@ export default function HomePage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 active:scale-95 ${
                   activeCategory === tab.id
-                    ? 'bg-primary text-on-primary shadow-sm'
-                    : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant/40'
+                    ? 'bg-primary text-on-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                    : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container border border-outline-variant/40 hover:border-outline'
                 }`}
               >
                 {tab.label}
@@ -213,7 +213,7 @@ export default function HomePage() {
           ].map((rev, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-6 border border-outline-variant/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-5 group"
+              className="bg-white rounded-2xl p-6 border border-outline-variant/40 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-secondary/30 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group"
             >
               <div className="space-y-3.5">
                 {/* Stars & Quote Icon */}
@@ -256,7 +256,7 @@ export default function HomePage() {
       </section>
 
       {/* Final LINE OA Sales Funnel Call to Action Banner */}
-      <section className="bg-primary text-on-primary rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
+      <section className="bg-primary text-on-primary rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500">
         <div className="max-w-2xl mx-auto space-y-6 relative z-10">
           <span className="inline-block bg-line-green text-white text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
             {language === 'th' ? 'ปรึกษาและสั่งซื้อโดยตรงกับแอดมิน' : 'Instant Sommelier Consultation'}
@@ -275,14 +275,14 @@ export default function HomePage() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={handleHeroLineChat}
-              className="w-full sm:w-auto bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-8 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.99]"
+              className="w-full sm:w-auto bg-line-green hover:bg-line-dark text-white font-semibold py-3.5 px-8 rounded-xl text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
             >
               <MessageSquare className="w-4 h-4 fill-current" />
               <span>{t('heroCtaOrder')}</span>
             </button>
             <Link
               href="/corporate"
-              className="w-full sm:w-auto bg-surface-container-lowest/10 hover:bg-white/20 text-on-primary font-medium py-3.5 px-6 rounded-xl text-sm transition-colors"
+              className="w-full sm:w-auto bg-surface-container-lowest/10 hover:bg-white/20 text-on-primary font-medium py-3.5 px-6 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-center"
             >
               {language === 'th' ? 'สอบถามเซ็ตผลไม้จัดเบรค' : 'Inquire Event Catering'}
             </Link>
