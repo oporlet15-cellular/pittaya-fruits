@@ -36,7 +36,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'corporate-fresh-cup',
-    badgeTh: 'ผลไม้จัดเบรค · Snack Box',
+    badgeTh: 'จัดเบรค · Snack Box',
     badgeEn: 'Catering Snack Box',
     code: 'PT-050',
     image: '/placeholder-white.svg',
@@ -102,13 +102,13 @@ export default function HeroShowcase() {
         </Link>
 
         {/* Top Left Badge: Dark pill with Star icon */}
-        <div className="absolute top-5 left-5 bg-primary/95 backdrop-blur-sm text-on-primary text-xs font-semibold px-4 py-1.5 rounded-full shadow-md flex items-center gap-1.5 pointer-events-none transition-all">
-          <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-current" />
-          <span>{language === 'th' ? currentSlide.badgeTh : currentSlide.badgeEn}</span>
+        <div className="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 bg-primary/95 backdrop-blur-sm text-on-primary text-[11px] sm:text-xs font-semibold px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-md flex items-center gap-1.5 pointer-events-none transition-all z-10 max-w-[65%] truncate">
+          <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 fill-current shrink-0" />
+          <span className="truncate">{language === 'th' ? currentSlide.badgeTh : currentSlide.badgeEn}</span>
         </div>
 
         {/* Top Right Badge: Light pill with Product Code */}
-        <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm text-primary font-mono text-xs font-semibold px-3 py-1 rounded-lg border border-outline-variant/40 shadow-sm pointer-events-none">
+        <div className="absolute top-3.5 sm:top-5 right-3.5 sm:right-5 bg-white/95 backdrop-blur-sm text-primary font-mono text-[11px] sm:text-xs font-semibold px-2.5 py-1 sm:px-3 sm:py-1 rounded-lg border border-outline-variant/40 shadow-sm pointer-events-none z-10">
           {language === 'th' ? `รหัส: ${currentSlide.code}` : `SKU: ${currentSlide.code}`}
         </div>
 
@@ -117,9 +117,9 @@ export default function HeroShowcase() {
           onClick={handlePrev}
           type="button"
           aria-label="Previous image"
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white text-primary border border-outline-variant/40 shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 z-10"
+          className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white text-primary border border-outline-variant/40 shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 z-10"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Right Arrow Button */}
@@ -127,9 +127,9 @@ export default function HeroShowcase() {
           onClick={handleNext}
           type="button"
           aria-label="Next image"
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white text-primary border border-outline-variant/40 shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 z-10"
+          className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white text-primary border border-outline-variant/40 shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 z-10"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Bottom Slide Indicator Dots */}
