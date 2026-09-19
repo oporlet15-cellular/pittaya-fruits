@@ -34,7 +34,7 @@ export default function GiftingStudioPage() {
 
         <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-xl mx-auto">
           {language === 'th'
-            ? 'ด้วยประสบการณ์คัดสรรผลไม้กว่า 20 ปี และจัดกระเช้ามาแล้วกว่า 1,000+ กระเช้า ทุกกระเช้าและกล่องของขวัญมาพร้อมบริการผูกริบบิ้นฟรี สวยงามประณีต'
+            ? 'ด้วยประสบการณ์คัดสรรผลไม้กว่า 20 ปี และจัดกระเช้ามาแล้วกว่า 1,000+ กระเช้า ทุกกระเช้าและกล่องของขวัญมาพร้อมบริการริบบิ้นฟรี สวยงามประณีต'
             : 'With over 20+ years of fruit selection expertise and 1,000+ gift baskets crafted, every gift basket and box includes complimentary tailored ribbon finishing.'}
         </p>
 

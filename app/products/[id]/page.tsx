@@ -75,7 +75,7 @@ export default function ProductDetailPage() {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
-      ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
+      ribbon: isMiniBox ? undefined : 'ริบบิ้นฟรี',
       quantity,
     });
   };
@@ -84,7 +84,7 @@ export default function ProductDetailPage() {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
-      ribbon: isMiniBox ? undefined : 'ผูกริบบิ้นฟรี',
+      ribbon: isMiniBox ? undefined : 'ริบบิ้นฟรี',
       quantity,
     });
   };
@@ -145,7 +145,7 @@ export default function ProductDetailPage() {
             ) : (
               <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
                 <Gift className="w-4 h-4 text-secondary mx-auto mb-1" />
-                <span className="font-semibold text-primary block">{language === 'th' ? 'บริการผูกริบบิ้นฟรี' : 'Complimentary'}</span>
+                <span className="font-semibold text-primary block">{language === 'th' ? 'ริบบิ้นฟรี' : 'Complimentary Ribbon'}</span>
                 <span>{language === 'th' ? 'ริบบิ้นตกแต่งสวยงาม' : 'Silk Ribbon Finishing'}</span>
               </div>
             )}

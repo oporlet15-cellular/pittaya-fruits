@@ -97,7 +97,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const size = options?.size || (product.availableSizes ? product.availableSizes[0].size : undefined);
     const tier = options?.tier || (product.availableTiers ? product.availableTiers[0].tier : undefined);
     const isMiniBox = product.category === 'mini-box';
-    const ribbon: RibbonColor | undefined = isMiniBox ? undefined : 'ผูกริบบิ้นฟรี';
+    const ribbon: RibbonColor | undefined = isMiniBox ? undefined : 'ริบบิ้นฟรี';
     const customNote = options?.customNote || '';
     const quantity = options?.quantity || 1;
 
@@ -195,7 +195,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (size) message += `📐 *ขนาด:* ${size}\n`;
     if (tier) message += `⭐ *เกรด:* ${tier}\n`;
     if (!isMiniBox) {
-      message += `🎀 *บริการ:* ผูกริบบิ้นฟรี\n`;
+      message += `🎀 *บริการ:* ริบบิ้นฟรี\n`;
     } else {
       message += `🍱 *รูปแบบ:* เซ็ตผลไม้จัดเบรค (พร้อมส้อมไม้)\n`;
     }
@@ -221,7 +221,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
       if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
       if (!isItemMiniBox) {
-        message += `   • บริการ: ผูกริบบิ้นฟรี\n`;
+        message += `   • บริการ: ริบบิ้นฟรี\n`;
       } else {
         message += `   • รูปแบบ: เซ็ตจัดเบรค (พร้อมส้อมไม้)\n`;
       }

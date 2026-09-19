@@ -9,7 +9,7 @@ import LineChatModal from '@/components/LineChatModal';
 
 export const metadata: Metadata = {
   title: 'Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง) — กระเช้าผลไม้ของขวัญ & เซ็ตผลไม้จัดเบรค',
-  description: 'ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) ประสบการณ์กว่า 20 ปี กระเช้าผลไม้สดคัดพิเศษ กล่องของขวัญ (ผูกริบบิ้นฟรี) และเซ็ตผลไม้จัดเบรคอีเวนต์ สั่งซื้อง่ายทาง LINE OA โทร 082-659-8893',
+  description: 'ร้านผลไม้เจ๊อึ่ง (Pittaya Fruits) ประสบการณ์กว่า 20 ปี กระเช้าผลไม้สดคัดพิเศษ กล่องของขวัญ (ริบบิ้นฟรี) และเซ็ตผลไม้จัดเบรคอีเวนต์ สั่งซื้อง่ายทาง LINE OA โทร 082-659-8893',
 };
 
 export default function RootLayout({

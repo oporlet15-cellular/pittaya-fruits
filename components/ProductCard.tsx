@@ -48,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     openLineOrderForProduct(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
-      ribbon: product.category === 'mini-box' ? undefined : 'ผูกริบบิ้นฟรี',
+      ribbon: product.category === 'mini-box' ? undefined : 'ริบบิ้นฟรี',
     });
   };
 
@@ -56,7 +56,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     addToCart(product, {
       size: product.category === 'basket' ? selectedSize : undefined,
       tier: (product.category === 'basket' && product.availableTiers) ? selectedTier : undefined,
-      ribbon: product.category === 'mini-box' ? undefined : 'ผูกริบบิ้นฟรี',
+      ribbon: product.category === 'mini-box' ? undefined : 'ริบบิ้นฟรี',
     });
   };
 
