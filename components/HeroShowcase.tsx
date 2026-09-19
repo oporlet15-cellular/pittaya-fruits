@@ -18,12 +18,21 @@ interface HeroSlide {
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'pittaya-grand-premium-basket',
-    badgeTh: 'ยอดนิยม · Best Seller',
-    badgeEn: 'Best Seller',
+    badgeTh: 'พรีเมียมนำเข้า · Grand Premium',
+    badgeEn: 'Grand Premium Basket',
     code: 'PT-020',
-    image: '/placeholder-white.svg',
+    image: '/basket-premium.jpg',
     altTh: 'กระเช้าผลไม้พรีเมียมนำเข้า Pittaya Grand Premium',
     altEn: 'Pittaya Grand Premium Fruit Basket',
+  },
+  {
+    id: 'pittaya-standard-basket',
+    badgeTh: 'คัดสดคุ้มค่า · Standard Basket',
+    badgeEn: 'Standard Fruit Basket',
+    code: 'PT-010',
+    image: '/basket-standard.jpg',
+    altTh: 'กระเช้าผลไม้คัดสด Pittaya Standard Basket',
+    altEn: 'Pittaya Standard Fresh Fruit Basket',
   },
   {
     id: 'signature-gift-box',
@@ -91,13 +100,13 @@ export default function HeroShowcase() {
         {/* Clickable Image linking to the product */}
         <Link
           href={`/products/${currentSlide.id}`}
-          className="w-full h-full flex items-center justify-center p-8 cursor-pointer group/link"
+          className="w-full h-full flex items-center justify-center cursor-pointer group/link overflow-hidden"
         >
           <img
             key={currentSlide.id}
             src={currentSlide.image}
             alt={language === 'th' ? currentSlide.altTh : currentSlide.altEn}
-            className="w-full h-full object-contain transition-all duration-500 ease-out group-hover/link:scale-105"
+            className={`w-full h-full ${currentSlide.image.endsWith('.svg') ? 'object-contain p-8' : 'object-cover'} transition-all duration-500 ease-out group-hover/link:scale-105`}
           />
         </Link>
 

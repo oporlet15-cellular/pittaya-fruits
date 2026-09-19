@@ -70,7 +70,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain p-4 bg-white group-hover:scale-105 transition-transform duration-500 ease-out"
+            className={`w-full h-full ${product.image.endsWith('.svg') ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-500 ease-out`}
           />
 
           {/* Badges */}

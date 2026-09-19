@@ -108,7 +108,7 @@ export default function ProductDetailPage() {
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-contain p-8 bg-white"
+              className={`w-full h-full ${product.image.endsWith('.svg') ? 'object-contain p-8' : 'object-cover'}`}
             />
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
               <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-primary shadow-sm">
