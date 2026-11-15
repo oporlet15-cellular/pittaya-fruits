@@ -44,13 +44,13 @@ const HERO_SLIDES: HeroSlide[] = [
     altEn: 'Premium Cherry Gift Box 1 kg',
   },
   {
-    id: 'corporate-fresh-cup',
-    badgeTh: 'จัดเบรค · Snack Box',
-    badgeEn: 'Catering Snack Box',
-    code: 'PT-050',
-    image: '/placeholder-white.svg',
-    altTh: 'เซ็ตผลไม้จัดเบรคพรีเมียม Fruit Break Box',
-    altEn: 'Corporate Fresh Fruit Break Box',
+    id: 'worship-fruit-set-9',
+    badgeTh: 'ชุดไหว้เจ้ามงคล · 9 อย่าง',
+    badgeEn: 'Auspicious Worship 9 Fruits',
+    code: 'PT-W09',
+    image: '/worship-set-9.jpg',
+    altTh: 'ชุดผลไม้ไหว้เจ้ามงคล 9 อย่าง ถาดแดงพร้อมไหว้',
+    altEn: '9 Auspicious Fruits Sacred Worship Set on Traditional Red Tray',
   },
 ];
 

@@ -15,7 +15,7 @@ import HeroShowcase from '@/components/HeroShowcase';
 export default function HomePage() {
   const { setActiveLineMessage, setIsLineModalOpen } = useCart();
   const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<'all' | 'basket' | 'gift-box' | 'mini-box'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'basket' | 'gift-box' | 'worship' | 'mini-box'>('all');
 
   const filteredProducts = activeCategory === 'all'
     ? PRODUCTS
@@ -113,6 +113,7 @@ export default function HomePage() {
                 { id: 'all', label: t('tabAll') },
                 { id: 'basket', label: t('tabBaskets') },
                 { id: 'gift-box', label: t('tabGiftBoxes') },
+                { id: 'worship', label: t('tabWorship') },
                 { id: 'mini-box', label: t('tabEventBoxes') },
               ].map((tab) => (
                 <button

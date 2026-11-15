@@ -5,7 +5,7 @@ export type RibbonColor = string;
 export interface Product {
   id: string;
   name: string;
-  category: 'basket' | 'gift-box' | 'mini-box';
+  category: 'basket' | 'gift-box' | 'mini-box' | 'worship';
   subtitle: string;
   description: string;
   brixIndex?: string;

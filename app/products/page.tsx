@@ -19,7 +19,7 @@ function ProductsContent() {
 
   useEffect(() => {
     const cat = searchParams.get('category');
-    if (cat && ['all', 'basket', 'gift-box', 'mini-box'].includes(cat)) {
+    if (cat && ['all', 'basket', 'gift-box', 'worship', 'mini-box'].includes(cat)) {
       setSelectedCategory(cat);
     }
   }, [searchParams]);
@@ -50,6 +50,7 @@ function ProductsContent() {
     { id: 'all', label: t('tabAll') },
     { id: 'basket', label: t('tabBaskets') },
     { id: 'gift-box', label: t('tabGiftBoxes') },
+    { id: 'worship', label: t('tabWorship') },
     { id: 'mini-box', label: t('tabEventBoxes') },
   ];
 

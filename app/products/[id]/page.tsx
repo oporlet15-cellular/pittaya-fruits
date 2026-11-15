@@ -136,7 +136,13 @@ export default function ProductDetailPage() {
               <span className="font-semibold text-primary block">{language === 'th' ? 'จัดส่งรถยนต์ถึงที่' : 'Platform Car Delivery'}</span>
               <span>{language === 'th' ? 'คิดตามระยะทางจริง' : 'Fee by Distance'}</span>
             </div>
-            {isMiniBox ? (
+            {product.category === 'worship' ? (
+              <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
+                <Sparkles className="w-4 h-4 text-secondary mx-auto mb-1" />
+                <span className="font-semibold text-primary block">{language === 'th' ? 'ถาดแดงมงคล' : 'Red Tray'}</span>
+                <span>{language === 'th' ? 'พร้อมตั้งโต๊ะไหว้ทันที' : 'Ready for Worship'}</span>
+              </div>
+            ) : isMiniBox ? (
               <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
                 <Utensils className="w-4 h-4 text-secondary mx-auto mb-1" />
                 <span className="font-semibold text-primary block">{language === 'th' ? 'พร้อมส้อมไม้' : 'Eco Fork'}</span>
@@ -157,9 +163,20 @@ export default function ProductDetailPage() {
           <div className="space-y-2 border-b border-outline-variant/30 pb-4">
             <div className="flex items-center gap-2">
               <span className="text-secondary font-semibold text-xs uppercase tracking-widest block">
-                {language === 'th' ? 'สินค้าพรีเมียมคัดสรร' : 'Atelier Selection'}
+                {product.category === 'basket'
+                  ? (language === 'th' ? 'กระเช้าผลไม้พรีเมียม' : 'Atelier Basket')
+                  : product.category === 'gift-box'
+                  ? (language === 'th' ? 'กล่องของขวัญผลไม้' : 'Signature Gift Box')
+                  : product.category === 'worship'
+                  ? (language === 'th' ? 'ชุดผลไม้ไหว้เจ้ามงคล' : 'Sacred Worship Set')
+                  : (language === 'th' ? 'ผลไม้จัดเบรค' : 'Event Pack')}
               </span>
-              {isMiniBox ? (
+              {product.category === 'worship' ? (
+                <span className="bg-line-green/10 text-line-dark text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <Sparkles className="w-3 h-3" />
+                  {t('worshipTrayBadge')}
+                </span>
+              ) : isMiniBox ? (
                 <span className="bg-surface-container-high text-on-surface-variant text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
                   <Utensils className="w-3 h-3" />
                   {t('eventNoRibbonBadge')}
@@ -202,6 +219,54 @@ export default function ProductDetailPage() {
               </span>
             )}
           </div>
+
+          {/* Worship Set Selector (7 vs 9 fruits) */}
+          {product.category === 'worship' && (
+            <div className="bg-surface-container-low p-4 rounded-xl space-y-3 border border-outline-variant/40">
+              <div className="flex justify-between items-center text-xs">
+                <label className="font-semibold text-primary uppercase tracking-wider">
+                  {t('selectWorshipSet')}
+                </label>
+                <span className="text-secondary font-bold font-serif">
+                  {product.id === 'worship-fruit-set-7'
+                    ? (language === 'th' ? 'ชุด 7 อย่าง (฿790)' : '7 Fruits Set (฿790)')
+                    : (language === 'th' ? 'ชุด 9 อย่าง (฿990)' : '9 Fruits Set (฿990)')}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/products/worship-fruit-set-7"
+                  className={`p-3 rounded-xl text-left border transition-all duration-200 active:scale-95 ${
+                    product.id === 'worship-fruit-set-7'
+                      ? 'bg-primary text-on-primary border-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                      : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:border-outline hover:bg-surface-container'
+                  }`}
+                >
+                  <span className="font-serif font-bold text-sm block">
+                    {language === 'th' ? 'ชุดมงคล 7 อย่าง' : '7 Auspicious Fruits'}
+                  </span>
+                  <span className="text-[10px] opacity-80 block truncate">
+                    {language === 'th' ? 'ถาดแดงมงคล · ฿790' : 'Red Tray · ฿790 THB'}
+                  </span>
+                </Link>
+                <Link
+                  href="/products/worship-fruit-set-9"
+                  className={`p-3 rounded-xl text-left border transition-all duration-200 active:scale-95 ${
+                    product.id === 'worship-fruit-set-9'
+                      ? 'bg-primary text-on-primary border-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                      : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:border-outline hover:bg-surface-container'
+                  }`}
+                >
+                  <span className="font-serif font-bold text-sm block">
+                    {language === 'th' ? 'ชุดมงคล 9 อย่าง' : '9 Auspicious Fruits'}
+                  </span>
+                  <span className="text-[10px] opacity-80 block truncate">
+                    {language === 'th' ? 'เสริมสับปะรด & ลำไย · ฿990' : 'Full Set · ฿990 THB'}
+                  </span>
+                </Link>
+              </div>
+            </div>
+          )}
 
           {/* Baskets Selector: Sizes (12", 14", 16") */}
           {product.category === 'basket' && product.availableSizes && (

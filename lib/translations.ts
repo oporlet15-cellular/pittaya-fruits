@@ -48,6 +48,7 @@ export const TRANSLATIONS = {
     tabAll: 'ทั้งหมด',
     tabBaskets: 'กระเช้าผลไม้ (12", 14", 16")',
     tabGiftBoxes: 'กล่องของขวัญผลไม้ (ราคาย่อมเยา)',
+    tabWorship: 'ชุดไหว้เจ้ามงคล (ถาดแดง)',
     tabEventBoxes: 'ผลไม้จัดเบรค & งานสัมมนา',
 
     // Product Card & Detail
@@ -57,11 +58,13 @@ export const TRANSLATIONS = {
     btnCustomizeNote: 'ดูรายละเอียด',
     btnAddToBag: '+ เพิ่มลงตะกร้า',
     freeGiftWrapBadge: 'ริบบิ้นฟรี',
+    worshipTrayBadge: 'จัดลงถาดแดงมงคลพร้อมไหว้',
     eventNoRibbonBadge: 'พร้อมส้อมไม้ทานสะดวก',
     ecoForkBadge: 'พร้อมส้อมไม้',
     minOrder10Badge: 'ขั้นต่ำ 10 กล่อง',
     selectBasketSize: 'เลือกขนาดกระเช้า:',
     selectTier: 'เลือกระดับเกรดผลไม้:',
+    selectWorshipSet: 'เลือกชุดผลไม้มงคล:',
     eventQtyLabel: 'จำนวนเซ็ตจัดเบรค (ขั้นต่ำ 10 กล่อง):',
 
     // Catalog Page
@@ -192,6 +195,7 @@ export const TRANSLATIONS = {
     tabAll: 'All Items',
     tabBaskets: 'Fruit Baskets (12", 14", 16")',
     tabGiftBoxes: 'Fruit Gift Boxes (Affordable Alternative)',
+    tabWorship: 'Auspicious Worship Sets',
     tabEventBoxes: 'Event & Meeting Break Packs',
 
     // Product Card & Detail
@@ -201,11 +205,13 @@ export const TRANSLATIONS = {
     btnCustomizeNote: 'View Details',
     btnAddToBag: '+ Add to Bag',
     freeGiftWrapBadge: 'Complimentary Ribbon Included',
+    worshipTrayBadge: 'Auspicious Red Tray Included',
     eventNoRibbonBadge: 'Eco Fork Included',
     ecoForkBadge: 'Eco Fork',
     minOrder10Badge: 'Min. Order: 10 Boxes',
     selectBasketSize: 'Select Basket Size:',
     selectTier: 'Selection Tier:',
+    selectWorshipSet: 'Select Worship Set:',
     eventQtyLabel: 'Event Pack Quantity (Min. 10 Boxes):',
 
     // Catalog Page

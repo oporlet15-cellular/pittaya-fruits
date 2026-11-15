@@ -119,6 +119,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                 ? (language === 'th' ? 'กระเช้าผลไม้พรีเมียม' : 'Artisanal Grand Reserve')
                 : product.category === 'gift-box'
                 ? (language === 'th' ? 'กล่องของขวัญผลไม้' : 'Signature Gift Box')
+                : product.category === 'worship'
+                ? (language === 'th' ? 'ชุดผลไม้ไหว้เจ้ามงคล' : 'Sacred Worship Set')
                 : (language === 'th' ? 'ผลไม้จัดเบรค & สัมมนา' : 'Event & Activity Pack')}
             </span>
             <span className="text-on-surface-variant font-mono text-[10px] font-medium bg-surface-container-low px-1.5 py-0.5 rounded border border-outline-variant/40">
@@ -188,8 +190,13 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Complimentary Ribbon Badge (Baskets/Gift Boxes) or Eco Fork Badge (Mini Boxes) */}
-        {product.category !== 'mini-box' ? (
+        {/* Complimentary Badge: Worship set has 'ถาดแดงมงคลพร้อมไหว้', Baskets/Gift Boxes have 'ริบบิ้นฟรี', Mini Boxes have 'พร้อมส้อมไม้' */}
+        {product.category === 'worship' ? (
+          <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-primary flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-secondary shrink-0" />
+            <span className="font-medium">{t('worshipTrayBadge')}</span>
+          </div>
+        ) : product.category !== 'mini-box' ? (
           <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-[11px] text-primary flex items-center gap-1.5">
             <Gift className="w-3.5 h-3.5 text-secondary shrink-0" />
             <span className="font-medium">{t('freeGiftWrapBadge')}</span>

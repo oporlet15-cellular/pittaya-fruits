@@ -97,7 +97,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const size = options?.size || (product.availableSizes ? product.availableSizes[0].size : undefined);
     const tier = options?.tier || (product.availableTiers ? product.availableTiers[0].tier : undefined);
     const isMiniBox = product.category === 'mini-box';
-    const ribbon: RibbonColor | undefined = isMiniBox ? undefined : 'ริบบิ้นฟรี';
+    const ribbon: RibbonColor | undefined = isMiniBox ? undefined : product.category === 'worship' ? 'ถาดแดงมงคล' : 'ริบบิ้นฟรี';
     const customNote = options?.customNote || '';
     const quantity = options?.quantity || 1;
 
@@ -194,7 +194,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     message += `📦 *สินค้า:* ${product.name} (รหัส: ${product.lotNumber})\n`;
     if (size) message += `📐 *ขนาด:* ${size}\n`;
     if (tier) message += `⭐ *เกรด:* ${tier}\n`;
-    if (!isMiniBox) {
+    if (product.category === 'worship') {
+      message += `🏮 *รูปแบบ:* ชุดผลไม้ไหว้เจ้ามงคล (จัดลงถาดแดงพร้อมไหว้)\n`;
+    } else if (!isMiniBox) {
       message += `🎀 *บริการ:* ริบบิ้นฟรี\n`;
     } else {
       message += `🍱 *รูปแบบ:* เซ็ตผลไม้จัดเบรค (พร้อมส้อมไม้)\n`;
@@ -222,7 +224,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       message += `[${index + 1}] *${item.product.name}* (รหัส: ${item.product.lotNumber})\n`;
       if (item.selectedSize) message += `   • ขนาด: ${item.selectedSize}\n`;
       if (item.selectedTier) message += `   • เกรด: ${item.selectedTier}\n`;
-      if (!isItemMiniBox) {
+      if (item.product.category === 'worship') {
+        message += `   • รูปแบบ: ชุดผลไม้ไหว้เจ้ามงคล (จัดลงถาดแดงพร้อมไหว้)\n`;
+      } else if (!isItemMiniBox) {
         message += `   • บริการ: ริบบิ้นฟรี\n`;
       } else {
         message += `   • รูปแบบ: เซ็ตจัดเบรค (พร้อมส้อมไม้)\n`;
