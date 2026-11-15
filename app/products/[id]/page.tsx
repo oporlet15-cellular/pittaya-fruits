@@ -357,6 +357,37 @@ export default function ProductDetailPage() {
                   {t('minOrder10Badge')}
                 </span>
               </div>
+
+              {/* Bulk Discount Tiers */}
+              {product.bulkDiscounts && product.bulkDiscounts.length > 0 && (
+                <div className="grid grid-cols-3 gap-2 text-xs">
+                  {product.bulkDiscounts.map((tier, idx, arr) => {
+                    const nextTier = arr[idx + 1];
+                    const rangeLabel = nextTier
+                      ? `${tier.minQuantity} - ${nextTier.minQuantity - 1} ${language === 'th' ? 'กล่อง' : 'boxes'}`
+                      : `${tier.minQuantity}+ ${language === 'th' ? 'กล่อง' : 'boxes'}`;
+                    const isActive = quantity >= tier.minQuantity && (!nextTier || quantity < nextTier.minQuantity);
+                    return (
+                      <button
+                        key={tier.minQuantity}
+                        type="button"
+                        onClick={() => setQuantity(tier.minQuantity)}
+                        className={`p-2 rounded-lg border text-center transition-all ${
+                          isActive
+                            ? 'bg-primary text-on-primary font-semibold ring-2 ring-primary/20 scale-[1.02]'
+                            : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:bg-surface-container'
+                        }`}
+                      >
+                        <span className="text-[11px] block opacity-90">{rangeLabel}</span>
+                        <span className="block font-bold text-xs mt-0.5">
+                          ฿{tier.pricePerUnit} / {language === 'th' ? 'กล่อง' : 'box'}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
               <div className="flex items-center gap-3">
                 <button
                   type="button"

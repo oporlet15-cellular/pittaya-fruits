@@ -13,12 +13,12 @@ export default function EventsAndActivitiesPage() {
   const miniBoxes = PRODUCTS.filter((p) => p.category === 'mini-box');
 
   const [boxQuantity, setBoxQuantity] = useState(10);
-  const baseUnitPrice = 150; // THB
+  const baseUnitPrice = 79; // THB
 
   let unitPrice = baseUnitPrice;
-  if (boxQuantity >= 50) unitPrice = 120;
-  else if (boxQuantity >= 20) unitPrice = 135;
-  else if (boxQuantity >= 10) unitPrice = 150;
+  if (boxQuantity >= 40) unitPrice = 70;
+  else if (boxQuantity >= 20) unitPrice = 75;
+  else if (boxQuantity >= 10) unitPrice = 79;
 
   const estimatedTotal = unitPrice * boxQuantity;
 
@@ -118,17 +118,17 @@ export default function EventsAndActivitiesPage() {
             </div>
 
             <div className="grid grid-cols-3 gap-2 text-xs">
-              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 10 && boxQuantity < 20 ? 'bg-primary text-on-primary font-semibold' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
+              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 10 && boxQuantity < 20 ? 'bg-primary text-on-primary font-semibold ring-2 ring-primary/20' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
                 <span>10 - 19 {language === 'th' ? 'กล่อง' : 'Boxes'}</span>
-                <span className="block font-bold mt-0.5">฿150 / {language === 'th' ? 'กล่อง' : 'box'}</span>
+                <span className="block font-bold mt-0.5">฿79 / {language === 'th' ? 'กล่อง' : 'box'}</span>
               </div>
-              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 20 && boxQuantity < 50 ? 'bg-primary text-on-primary font-semibold' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
-                <span>20 - 49 {language === 'th' ? 'กล่อง' : 'Boxes'}</span>
-                <span className="block font-bold mt-0.5">฿135 / {language === 'th' ? 'กล่อง' : 'box'}</span>
+              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 20 && boxQuantity < 40 ? 'bg-primary text-on-primary font-semibold ring-2 ring-primary/20' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
+                <span>20 - 39 {language === 'th' ? 'กล่อง' : 'Boxes'}</span>
+                <span className="block font-bold mt-0.5">฿75 / {language === 'th' ? 'กล่อง' : 'box'}</span>
               </div>
-              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 50 ? 'bg-secondary text-on-secondary font-semibold' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
-                <span>50+ {language === 'th' ? 'กล่อง' : 'Boxes'}</span>
-                <span className="block font-bold mt-0.5">฿120 / {language === 'th' ? 'กล่อง' : 'box'}</span>
+              <div className={`p-2.5 rounded-lg border text-center ${boxQuantity >= 40 ? 'bg-secondary text-on-secondary font-semibold ring-2 ring-secondary/20' : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40'}`}>
+                <span>40+ {language === 'th' ? 'กล่อง' : 'Boxes'}</span>
+                <span className="block font-bold mt-0.5">฿70 / {language === 'th' ? 'กล่อง' : 'box'}</span>
               </div>
             </div>
           </div>
