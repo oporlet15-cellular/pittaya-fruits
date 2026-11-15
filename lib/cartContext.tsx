@@ -200,7 +200,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       message += `🍱 *รูปแบบ:* เซ็ตผลไม้จัดเบรค (พร้อมส้อมไม้)\n`;
     }
     message += `🔢 *จำนวน:* ${quantity} ${isMiniBox ? 'กล่อง' : 'ชิ้น'}\n`;
-    message += `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`;
+    message += totalPrice > 0 
+      ? `💰 *ยอดรวมโดยประมาณ:* ฿${totalPrice.toLocaleString()} บาท\n`
+      : `💰 *ราคา:* สอบถามราคาทางแชท\n`;
     message += `🚗 *การจัดส่ง:* จัดส่งรถยนต์ผ่านแพลตฟอร์ม (คิดค่าส่งตามระยะทางจริง)\n`;
     message += `--------------------------------------\n`;
     message += `ต้องการสอบถามคิวจัดส่งและสรุปยอดกับทางร้านครับ/ค่ะ`;
@@ -225,7 +227,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         message += `   • รูปแบบ: เซ็ตจัดเบรค (พร้อมส้อมไม้)\n`;
       }
-      message += `   • จำนวน: ${item.quantity} ${isItemMiniBox ? 'กล่อง' : 'ชิ้น'} × ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท\n\n`;
+      const priceStr = item.unitPrice > 0 ? `× ฿${item.unitPrice.toLocaleString()} = ฿${item.totalPrice.toLocaleString()} บาท` : '(สอบถามราคา)';
+      message += `   • จำนวน: ${item.quantity} ${isItemMiniBox ? 'กล่อง' : 'ชิ้น'} ${priceStr}\n\n`;
     });
 
     message += `--------------------------------------\n`;

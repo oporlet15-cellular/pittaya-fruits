@@ -92,14 +92,22 @@ export default function ProductCard({ product }: ProductCardProps) {
                 : 'border border-outline-variant/30'
             }`}
           >
-            <span className="text-[10px] text-on-surface-variant font-medium">THB</span>
-            <span
-              className={`font-serif text-lg font-bold transition-colors duration-200 ${
-                isPriceAnimating ? 'text-secondary font-extrabold' : 'text-primary'
-              }`}
-            >
-              ฿{formattedPrice}
-            </span>
+            {currentPrice > 0 ? (
+              <>
+                <span className="text-[10px] text-on-surface-variant font-medium">THB</span>
+                <span
+                  className={`font-serif text-lg font-bold transition-colors duration-200 ${
+                    isPriceAnimating ? 'text-secondary font-extrabold' : 'text-primary'
+                  }`}
+                >
+                  ฿{formattedPrice}
+                </span>
+              </>
+            ) : (
+              <span className="font-sans text-xs font-semibold text-secondary">
+                {language === 'th' ? 'สอบถามราคา' : 'Inquire Price'}
+              </span>
+            )}
           </div>
         </div>
 
@@ -219,7 +227,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         >
           <MessageSquare className="w-3.5 h-3.5 fill-current" />
           <span className={`transition-transform duration-200 ${isPriceAnimating ? 'scale-105 font-bold' : ''}`}>
-            {t('btnPreOrderLine')} — ฿{formattedPrice}
+            {t('btnPreOrderLine')} {currentPrice > 0 ? `— ฿${formattedPrice}` : `— ${language === 'th' ? 'สอบถามราคา' : 'Inquire'}`}
           </span>
         </button>
 

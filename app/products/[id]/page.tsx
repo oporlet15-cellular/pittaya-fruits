@@ -179,18 +179,26 @@ export default function ProductDetailPage() {
 
           {/* Pricing Header */}
           <div className="flex items-baseline gap-3">
-            <span
-              className={`font-serif text-3xl font-bold transition-all duration-200 ${
-                isPriceAnimating
-                  ? 'animate-price-pop text-secondary'
-                  : 'text-primary'
-              }`}
-            >
-              ฿{formattedTotalPrice} THB
-            </span>
-            {quantity > 1 && (
-              <span className="text-xs text-on-surface-variant font-medium">
-                (฿{formattedUnitPrice} THB / กล่อง × {quantity} กล่อง)
+            {totalPrice > 0 ? (
+              <>
+                <span
+                  className={`font-serif text-3xl font-bold transition-all duration-200 ${
+                    isPriceAnimating
+                      ? 'animate-price-pop text-secondary'
+                      : 'text-primary'
+                  }`}
+                >
+                  ฿{formattedTotalPrice} THB
+                </span>
+                {quantity > 1 && (
+                  <span className="text-xs text-on-surface-variant font-medium">
+                    (฿{formattedUnitPrice} THB / กล่อง × {quantity} กล่อง)
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="font-sans text-xl sm:text-2xl font-bold text-secondary">
+                {language === 'th' ? 'สอบถามราคาผ่าน LINE' : 'Inquire Price via LINE'}
               </span>
             )}
           </div>
@@ -300,7 +308,9 @@ export default function ProductDetailPage() {
               className="w-full bg-line-green hover:bg-line-dark text-white font-semibold py-4 px-6 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.99]"
             >
               <MessageSquare className="w-5 h-5 fill-current" />
-              <span>{t('btnPreOrderLine')} — ฿{formattedTotalPrice} THB</span>
+              <span>
+                {t('btnPreOrderLine')} {totalPrice > 0 ? `— ฿${formattedTotalPrice} THB` : `— ${language === 'th' ? 'สอบถามราคา' : 'Inquire'}`}
+              </span>
             </button>
 
             <button
