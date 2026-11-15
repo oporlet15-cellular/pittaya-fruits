@@ -36,12 +36,12 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 'cherry-gift-box-1kg',
-    badgeTh: 'กล่องของขวัญ · Cherry 1 kg',
-    badgeEn: 'Premium Cherry Gift Box 1 kg',
+    badgeTh: 'กล่องของขวัญ · Cherry 4J (฿950)',
+    badgeEn: 'Imported Cherry 4J · 1 kg (฿950)',
     code: 'PT-035',
     image: '/cherry-gift-box-1kg.jpg',
-    altTh: 'กล่องของขวัญเชอร์รี่สดพรีเมียม 1 กิโลกรัม',
-    altEn: 'Premium Cherry Gift Box 1 kg',
+    altTh: 'กล่องของขวัญเชอร์รี่สดนำเข้า ไซส์ 4J ขนาด 1 กิโลกรัม',
+    altEn: 'Imported Cherry Size 4J Gift Box 1 kg',
   },
   {
     id: 'worship-fruit-set-9',
