@@ -220,7 +220,7 @@ export default function ProductDetailPage() {
             )}
           </div>
 
-          {/* Worship Set Selector (7 vs 9 fruits) */}
+          {/* Worship Set Selector (5 vs 7 vs 9 fruits) */}
           {product.category === 'worship' && (
             <div className="bg-surface-container-low p-4 rounded-xl space-y-3 border border-outline-variant/40">
               <div className="flex justify-between items-center text-xs">
@@ -228,12 +228,29 @@ export default function ProductDetailPage() {
                   {t('selectWorshipSet')}
                 </label>
                 <span className="text-secondary font-bold font-serif">
-                  {product.id === 'worship-fruit-set-7'
+                  {product.id === 'worship-fruit-set-5'
+                    ? (language === 'th' ? 'ชุด 5 อย่าง (฿590)' : '5 Fruits Set (฿590)')
+                    : product.id === 'worship-fruit-set-7'
                     ? (language === 'th' ? 'ชุด 7 อย่าง (฿790)' : '7 Fruits Set (฿790)')
                     : (language === 'th' ? 'ชุด 9 อย่าง (฿990)' : '9 Fruits Set (฿990)')}
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <Link
+                  href="/products/worship-fruit-set-5"
+                  className={`p-3 rounded-xl text-left border transition-all duration-200 active:scale-95 ${
+                    product.id === 'worship-fruit-set-5'
+                      ? 'bg-primary text-on-primary border-primary shadow-sm ring-2 ring-primary/20 scale-[1.02]'
+                      : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:border-outline hover:bg-surface-container'
+                  }`}
+                >
+                  <span className="font-serif font-bold text-sm block">
+                    {language === 'th' ? 'ชุดมงคล 5 อย่าง' : '5 Auspicious Fruits'}
+                  </span>
+                  <span className="text-[10px] opacity-80 block truncate">
+                    {language === 'th' ? 'ไหว้พระ/เจ้าที่ · ฿590' : 'Buddha/Shrine · ฿590'}
+                  </span>
+                </Link>
                 <Link
                   href="/products/worship-fruit-set-7"
                   className={`p-3 rounded-xl text-left border transition-all duration-200 active:scale-95 ${
@@ -246,7 +263,7 @@ export default function ProductDetailPage() {
                     {language === 'th' ? 'ชุดมงคล 7 อย่าง' : '7 Auspicious Fruits'}
                   </span>
                   <span className="text-[10px] opacity-80 block truncate">
-                    {language === 'th' ? 'ถาดแดงมงคล · ฿790' : 'Red Tray · ฿790 THB'}
+                    {language === 'th' ? 'ถาดแดงมงคล · ฿790' : 'Red Tray · ฿790'}
                   </span>
                 </Link>
                 <Link
@@ -261,7 +278,7 @@ export default function ProductDetailPage() {
                     {language === 'th' ? 'ชุดมงคล 9 อย่าง' : '9 Auspicious Fruits'}
                   </span>
                   <span className="text-[10px] opacity-80 block truncate">
-                    {language === 'th' ? 'เสริมสับปะรด & ลำไย · ฿990' : 'Full Set · ฿990 THB'}
+                    {language === 'th' ? 'เสริมสับปะรด&ลำไย · ฿990' : 'Full Set · ฿990'}
                   </span>
                 </Link>
               </div>
