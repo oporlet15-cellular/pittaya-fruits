@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.DS_Store
+*.log
+.env*.local
+mockup
+docs
+stitch_minimalist_fruit_shop_mockup.zip
+plan for PT.jpg
