@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import LineChatModal from '@/components/LineChatModal';
+import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'Pittaya Fruits (ร้านผลไม้เจ๊อึ่ง) — กระเช้าผลไม้ของขวัญ & เซ็ตผลไม้จัดเบรค',
@@ -35,6 +36,7 @@ export default function RootLayout({
             <Footer />
             <CartDrawer />
             <LineChatModal />
+            <CookieConsent />
           </CartProvider>
         </LanguageProvider>
       </body>
